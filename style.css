@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
+}
+header {
+  background: #f8d57e;
+  padding: 2rem;
+}
+.video {
+  margin: 2rem;
+}
+footer {
+  background: #eee;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
