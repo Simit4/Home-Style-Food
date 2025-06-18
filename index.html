@@ -2,56 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Style Cooking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Style Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <div class="header-content">
-    <h1>Home Style Food</h1>
-  </div>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#recipes">Recipes</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+<header>
+  <div class="container header-container">
+    <h1>Home Style Food</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-  <main class="container">
-    <section class="video-section">
-      <h2>Veg Chowmein Recipe</h2>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/DkHDChvzw78" 
-                title="Veg Chowmein Recipe" 
-                allowfullscreen></iframe>
-      </div>
-    </section>
+<section class="hero">
+  <div class="container">
+    <h2>Simple & Tasty Home-Cooked Meals</h2>
+    <p>Delicious recipes with easy ingredients anyone can try at home.</p>
+    <a href="#recipes" class="btn-primary">Explore Recipes</a>
+  </div>
+</section>
 
-    <section class="ingredients">
-      <h2>Ingredients</h2>
-      <ul>
-        <li>🧅 1 Onion – sliced</li>
-        <li>🌶️ 2 Green chillies – chopped</li>
-        <li>🫑 ½ Green capsicum – sliced</li>
-        <li>🥬 1 cup Cabbage – shredded</li>
-        <li>🍜 150g Chowmein noodles – boiled</li>
-        <li>🌶️ 1 tsp Chilli powder</li>
-        <li>🥄 2 tbsp Soy sauce</li>
-        <li>🧂 Salt – to taste</li>
-        <li>🛢️ 2 tbsp Oil</li>
-        <li>🧂 A pinch of MSG (optional)</li>
-        <li>🧂 Chowmein Masala (optional)</li>
-      </ul>
-    </section>
-  </main>
+<section id="recipes" class="container recipes-section">
+  <h2>Popular Recipes</h2>
+  <div class="recipes-grid">
+    <article class="recipe-card">
+      <img src="images/veg-chowmein.jpg" alt="Veg Chowmein" />
+      <h3>Easy Veg Chowmein</h3>
+      <p>Quick, simple, flavorful vegetarian chowmein you can make anytime.</p>
+      <a href="#" class="btn-secondary">View Recipe</a>
+    </article>
+    <article class="recipe-card">
+      <img src="images/momo.jpg" alt="Nepali Momos" />
+      <h3>Nepali Momos</h3>
+      <p>Steamed dumplings filled with veggies or meat, a Nepali favorite.</p>
+      <a href="#" class="btn-secondary">View Recipe</a>
+    </article>
+    <article class="recipe-card">
+      <img src="images/tadka-dal.jpg" alt="Tadka Dal" />
+      <h3>Tadka Dal</h3>
+      <p>Simple spiced lentils, comforting and nutritious.</p>
+      <a href="#" class="btn-secondary">View Recipe</a>
+    </article>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Home Style Cooking | Made with love in Melbourne</p>
-  </footer>
+<section id="about" class="container about-section">
+  <h2>About This Channel</h2>
+  <p>Sharing easy home-cooked meals inspired by Nepali flavors and beyond, made with love and few ingredients.</p>
+</section>
+
+<footer>
+  <div class="container footer-container">
+    <p>© 2025 Home Style Food. All rights reserved.</p>
+    <p>Follow us on 
+      <a href="#" target="_blank" rel="noopener">YouTube</a> | 
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
