@@ -183,3 +183,8 @@ footer {
     gap: 1rem;
   }
 }
+
+
+.navbar ul li a i {
+  margin-right: 8px;
+}
