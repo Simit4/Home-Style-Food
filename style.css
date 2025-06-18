@@ -58,7 +58,7 @@ header h1 {
 /* Hero */
 .hero {
   background: url('images/hero-bg.jpg') center/cover no-repeat;
-  color: white;
+  color: #2d572c;
   padding: 6rem 1rem;
   text-align: center;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
