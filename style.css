@@ -17,8 +17,8 @@ a {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #f67280, #f8b195);
-  color: white;
+  background: #d0f0c0; /* Light green */
+  color: #2d572c; /* Darker green for text */
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -76,11 +76,11 @@ header {
 
 /* Footer */
 footer {
-  background-color: #f2f2f2;
+  background-color: #d0f0c0; /* Light green */
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #2d572c; /* Match header text */
   margin-top: 2rem;
 }
 
