@@ -322,3 +322,20 @@ footer {
     display: none; /* hide video in print */
   }
 }
+
+
+.print-btn {
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #3a8037;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-btn:hover {
+  background-color: #2d572c;
+}
