@@ -2,6 +2,7 @@
   {
     "id": "veg-chowmein",
     "title": "Easy Veg Chowmein",
+    "description": "A quick and flavorful Nepalese-style vegetarian noodle dish.",
     "video": "https://www.youtube.com/embed/pf81keZwvw4",
     "ingredients": [
       "1 Onion – sliced",
@@ -31,10 +32,11 @@
   {
     "id": "val-papdi",
     "title": "Val Papdi Curry",
+    "description": "Easy, quick & tasty Nepalese-style flat beans curry.",
     "video": "https://www.youtube.com/embed/DkHDChvzw78",
     "ingredients": [
       "1 medium onion, chopped",
-      "2–3 garlic cloves, minced",
+      "2–3 cloves garlic, minced",
       "2 small tomatoes, chopped",
       "1 medium potato, diced",
       "250g val papdi (valor beans), trimmed & chopped",
@@ -60,6 +62,7 @@
   {
     "id": "egg-roll",
     "title": "Quick Egg Roll",
+    "description": "A tasty, customizable egg roll perfect for snacks or meals.",
     "video": "https://www.youtube.com/embed/KAanHNsWdC4",
     "ingredients": [
       "2 Flatbreads (tortilla or chapati)",
