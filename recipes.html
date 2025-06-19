@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <script src="recipes.js" defer></script> <!-- ✅ Load dynamic recipes -->
 </head>
 <body>
 
@@ -26,36 +27,8 @@
 <main>
   <section class="recipes-section">
     <h2>All Recipes</h2>
-    <div class="recipes-grid">
-      
-      <!-- Veg Chowmein -->
-      <article class="recipe-card">
-        <iframe src="https://www.youtube.com/embed/pf81keZwvw4"
-          title="Veg Chowmein" allowfullscreen></iframe>
-        <h3>Easy Veg Chowmein</h3>
-        <p>A spicy and flavorful noodle dish perfect for quick dinners.</p>
-        <a href="veg-chowmein.html" class="btn-secondary">View Recipe</a>
-      </article>
-
-      <!-- Val Papdi -->
-      <article class="recipe-card">
-        <iframe src="https://www.youtube.com/embed/DkHDChvzw78"
-          title="Val Papdi Curry" allowfullscreen></iframe>
-        <h3>Val Papdi Curry</h3>
-        <p>Delicious flat bean curry cooked Nepali-style, perfect with roti or rice.</p>
-        <a href="val-papdi.html" class="btn-secondary">View Recipe</a>
-      </article>
-
-      <!-- Egg Roll -->
-      <article class="recipe-card">
-        <iframe src="https://www.youtube.com/embed/KAanHNsWdC4"
-          title="Egg Roll Recipe" allowfullscreen></iframe>
-        <h3>Quick Egg Roll</h3>
-        <p>Fast and easy egg wrap with cheese, veggies, and sauces. Great snack!</p>
-        <a href="egg-roll.html" class="btn-secondary">View Recipe</a>
-      </article>
-
-    </div>
+    <!-- ✅ JavaScript will populate this -->
+    <div id="recipes-list" class="recipes-grid"></div>
   </section>
 </main>
 
