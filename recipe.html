@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Recipe | Home Style Food</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe | Home Style Food</title>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="recipes.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -22,8 +23,33 @@
   </div>
 </header>
 
-<main class="container" id="recipe-details">
-  <!-- Recipe loaded by JavaScript -->
+<main class="container recipe-page">
+  <h2 class="recipe-title" id="recipe-title">Recipe Title</h2>
+  <p class="recipe-subtitle" id="recipe-subtitle">Short description of the recipe.</p>
+
+  <div class="recipe-content">
+    <section class="ingredients-method">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul id="ingredients-list">
+          <!-- Ingredients inserted by JS -->
+        </ul>
+      </div>
+
+      <div class="method">
+        <h3>Method</h3>
+        <ol id="method-list">
+          <!-- Method steps inserted by JS -->
+        </ol>
+      </div>
+    </section>
+
+    <div class="video-wrapper">
+      <iframe id="recipe-video" width="100%" height="300" src="" title="Recipe Video" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <button onclick="window.print()" class="btn-primary print-btn">🖨️ Print Recipe</button>
 </main>
 
 <footer>
@@ -31,6 +57,64 @@
     <p>© 2025 Home Style Food. All rights reserved.</p>
   </div>
 </footer>
+
+<script src="recipes.js"></script>
+<script>
+  // Example: Load recipe data dynamically based on URL param 'id'
+  // e.g. recipe.html?id=veg-chowmein
+
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  async function loadRecipe() {
+    const id = getQueryParam('id');
+    if (!id) {
+      alert('No recipe specified');
+      return;
+    }
+
+    try {
+      const response = await fetch('recipes.json');
+      const data = await response.json();
+      const recipe = data.recipes.find(r => r.id === id);
+
+      if (!recipe) {
+        alert('Recipe not found');
+        return;
+      }
+
+      document.getElementById('recipe-title').textContent = recipe.title;
+      document.getElementById('recipe-subtitle').textContent = recipe.description;
+
+      const ingredientsList = document.getElementById('ingredients-list');
+      ingredientsList.innerHTML = '';
+      recipe.ingredients.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ingredientsList.appendChild(li);
+      });
+
+      const methodList = document.getElementById('method-list');
+      methodList.innerHTML = '';
+      recipe.method.forEach(step => {
+        const li = document.createElement('li');
+        li.textContent = step;
+        methodList.appendChild(li);
+      });
+
+      document.getElementById('recipe-video').src = recipe.video;
+      document.getElementById('recipe-video').title = recipe.title + " Video";
+
+    } catch (error) {
+      alert('Error loading recipe');
+      console.error(error);
+    }
+  }
+
+  loadRecipe();
+</script>
 
 </body>
 </html>
