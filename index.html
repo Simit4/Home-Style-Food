@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home Style Food</title>
-  
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -17,66 +16,33 @@
     <h1>Home Style Food</h1>
     <nav class="navbar">
       <ul>
-<li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> About Us</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
-  <div class="hero-content container">
-    <h2>Simple &amp; Tasty Home-Cooked Meals</h2>
-    <p>Delicious recipes with easy ingredients anyone can try at home.</p>
-    <button class="btn-primary" id="exploreBtn">Explore Recipes</button>
+  <div class="hero-content">
+    <h2>Simple & Tasty Home-Cooked Meals</h2>
+    <p>Discover delicious recipes made with easy everyday ingredients.</p>
+    <a href="recipes.html" class="btn-primary">Explore All Recipes</a>
   </div>
 </section>
 
-<section id="recipes" class="recipes-section container">
-  <h2>Latest Recipes on YouTube</h2>
-  <div class="recipes-grid">
-    <article class="recipe-card">
-      <iframe src="https://www.youtube.com/embed/pf81keZwvw4" title="Easy Veg Chowmein" allowfullscreen></iframe>
-      <h3>Easy Veg Chowmein</h3>
-      <p>Quick, simple, flavorful vegetarian chowmein you can make anytime.</p>
-      <a href="veg-chowmein.html" class="btn-secondary">View Recipe</a>
-
-    </article>
-
-    <article class="recipe-card">
-      <iframe src="https://www.youtube.com/embed/DkHDChvzw78" title="Val Papdi Curry" allowfullscreen></iframe>
-      <h3>Val Papdi Curry</h3>
-      <p>Easy Quick &amp; Tasty Nepalese-Style Flat Beans Recipe.</p>
-<a href="val-papdi.html" class="btn-secondary">View Recipe</a>
-    </article>
-
-    <article class="recipe-card">
-      <iframe src="https://www.youtube.com/embed/KAanHNsWdC4" title="Simple Egg Roll" allowfullscreen></iframe>
-      <h3>Easy Egg Roll</h3>
-      <p>Egg Rolls Made Simple – Perfect Snack!</p>
-<a href="egg-roll.html" class="btn-secondary">View Recipe</a>
-    </article>
-  </div>
+<!-- About Section -->
+<section id="about" class="container about-section">
+  <h2>About This Channel</h2>
+  <p>Sharing easy home-cooked meals inspired by Nepali flavors and beyond. Real food made with love and simple ingredients, perfect for anyone who loves to cook at home.</p>
 </section>
-
-
 
 <footer>
   <div class="container footer-container">
     <p>© 2025 Home Style Food. All rights reserved.</p>
-    <p>Follow us on 
-      <a href="#" target="_blank" rel="noopener">YouTube</a> | 
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
-    </p>
   </div>
 </footer>
-
-<script>
-  // Smooth scroll on clicking the Explore Recipes button
-  document.getElementById('exploreBtn').addEventListener('click', () => {
-    document.getElementById('recipes').scrollIntoView({ behavior: 'smooth' });
-  });
-</script>
 
 </body>
 </html>
