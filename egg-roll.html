@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Egg Roll | Home Style Food</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+  />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" 
+    rel="stylesheet" 
+  />
+</head>
+<body>
+
+<header>
+  <div class="container header-container">
+    <h1>Home Style Food</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container recipe-page two-column">
+  <!-- Text Column -->
+  <div class="text-column">
+    <h2 class="recipe-title">Simple &amp; Easy Egg Roll</h2>
+    <p class="recipe-subtitle">A quick savory snack perfect any time of day.</p>
+
+    <section class="ingredients-method">
+      <div class="ingredients">
+        <h3>🛒 Ingredients:</h3>
+        <ul>
+          <li>Flatbread (tortilla or chapati)</li>
+          <li>Eggs</li>
+          <li>Tasty cheese</li>
+          <li>Tomatoes, sliced</li>
+          <li>Onions, sliced</li>
+          <li>Fresh coriander, chopped</li>
+          <li>Tomato sauce</li>
+          <li>Sriracha chili sauce (for a spicy kick!)</li>
+          <li>Customize with your favorites!</li>
+        </ul>
+      </div>
+
+      <div class="method">
+        <h3>👨‍🍳 Steps:</h3>
+        <ol>
+          <li>Scramble eggs and toast the flatbread.</li>
+          <li>Layer eggs, cheese, tomatoes, onions, and coriander on the flatbread.</li>
+          <li>Drizzle tomato sauce and Sriracha to taste.</li>
+          <li>Roll it up tightly and enjoy your savory snack!</li>
+        </ol>
+      </div>
+    </section>
+
+    <button onclick="window.print()" class="btn-primary print-btn">
+      🖨️ Print Recipe
+    </button>
+  </div>
+
+  <!-- Video Column -->
+  <div class="video-column">
+    <div class="video-wrapper">
+      <iframe 
+        width="100%" 
+        height="250" 
+        src="https://www.youtube.com/embed/KAanHNsWdC4" 
+        title="Simple Egg Roll Recipe" 
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-container">
+    <p>© 2025 Home Style Food. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
