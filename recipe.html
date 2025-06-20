@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recipe | Home Style Food</title>
-  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -19,34 +18,16 @@
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main class="container recipe-page">
-  <h2 id="recipe-title" class="recipe-title">Loading...</h2>
-  <p id="recipe-subtitle" class="recipe-subtitle"></p>
-
-  <div class="recipe-content">
-    <div class="video-wrapper">
-      <iframe id="recipe-video" width="100%" height="400" src="" title="Recipe video" allowfullscreen></iframe>
-    </div>
-
-    <section class="ingredients-method">
-      <div class="ingredients">
-        <h3>Ingredients</h3>
-        <ul id="ingredients-list"></ul>
-      </div>
-
-      <div class="method">
-        <h3>Method</h3>
-        <ol id="method-list"></ol>
-      </div>
-    </section>
+  <div id="recipe-content">
+    <!-- Recipe details loaded by JS -->
   </div>
-
-  <button onclick="window.print()" class="btn-primary print-btn">🖨️ Print Recipe</button>
 </main>
 
 <footer>
@@ -55,6 +36,6 @@
   </div>
 </footer>
 
-<script src="recipe.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
