@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home Style Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -14,19 +13,18 @@
 <header>
   <div class="container header-container">
     <h1>Home Style Food</h1>
-   <nav class="navbar">
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li> <!-- NEW -->
-  </ul>
-</nav>
-
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-content container">
+  <div class="container hero-content">
     <h2>Simple & Tasty Home-Cooked Meals</h2>
     <p>Delicious recipes with easy ingredients anyone can try at home.</p>
     <a href="recipes.html" class="btn-primary">Explore Recipes</a>
@@ -35,21 +33,10 @@
 
 <section class="featured-recipes container">
   <h2>Featured Recipes</h2>
-  <div class="recipes-grid">
-    <!-- You can embed a few recipe cards here with images or videos -->
-    <article class="recipe-card">
-      <iframe width="100%" height="180" src="https://www.youtube.com/embed/pf81keZwvw4" frameborder="0" allowfullscreen></iframe>
-      <h3>Easy Veg Chowmein</h3>
-      <a href="recipes.html#veg-chowmein" class="btn-secondary">View Recipe</a>
-    </article>
-    <article class="recipe-card">
-      <iframe width="100%" height="180" src="https://www.youtube.com/embed/DkHDChvzw78" frameborder="0" allowfullscreen></iframe>
-      <h3>Val Papdi Curry</h3>
-      <a href="recipes.html#val-papdi" class="btn-secondary">View Recipe</a>
-    </article>
+  <div id="featured-recipes" class="recipes-grid">
+    <!-- JS loads featured recipes here -->
   </div>
 </section>
-
 
 <footer>
   <div class="container footer-container">
@@ -57,5 +44,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
