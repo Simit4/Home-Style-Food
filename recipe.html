@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recipe | Home Style Food</title>
+  <title>Recipe Detail | Home Style Food</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -17,14 +19,34 @@
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="container recipe-page" id="recipePage">
-  <h2 class="recipe-title">Loading...</h2>
+<main class="container recipe-page">
+  <h2 id="recipe-title" class="recipe-title">Loading...</h2>
+  <p id="recipe-subtitle" class="recipe-subtitle"></p>
+
+  <div class="recipe-content">
+    <div class="video-wrapper">
+      <!-- Video iframe will be inserted here -->
+    </div>
+
+    <section class="ingredients-method">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul id="ingredients-list"></ul>
+      </div>
+
+      <div class="method">
+        <h3>Method</h3>
+        <ol id="method-list"></ol>
+      </div>
+    </section>
+  </div>
+
+  <button onclick="window.print()" class="btn-primary print-btn">🖨️ Print Recipe</button>
 </main>
 
 <footer>
@@ -33,65 +55,6 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
-<script>
-  const supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co';  // Replace with your project URL
-  const supabaseKey = 'YOUR_ANON_KEY';  // Replace with your anon key
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-  async function loadRecipe() {
-    const params = new URLSearchParams(window.location.search);
-    const recipeId = params.get('id');
-
-    if (!recipeId) {
-      document.getElementById('recipePage').innerHTML = '<p>No recipe selected.</p>';
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from('recipes')
-      .select('*')
-      .eq('id', recipeId)
-      .single();
-
-    if (error || !data) {
-      console.error('Recipe not found:', error);
-      document.getElementById('recipePage').innerHTML = '<p>Recipe not found.</p>';
-      return;
-    }
-
-    // Build ingredient list HTML
-    const ingredientsHtml = data.ingredients.map(item => `<li>${item}</li>`).join('');
-    const methodHtml = data.method.map(step => `<li>${step}</li>`).join('');
-
-    // Render content
-    document.getElementById('recipePage').innerHTML = `
-      <h2 class="recipe-title">${data.title}</h2>
-      <p class="recipe-subtitle">${data.description || ''}</p>
-
-      <div class="recipe-content-wrapper">
-        <div class="video-wrapper">
-          <iframe src="${data.video}" title="${data.title}" allowfullscreen></iframe>
-        </div>
-
-        <section class="ingredients-method">
-          <div class="ingredients">
-            <h3>Ingredients</h3>
-            <ul>${ingredientsHtml}</ul>
-          </div>
-          <div class="method">
-            <h3>Method</h3>
-            <ol>${methodHtml}</ol>
-          </div>
-        </section>
-      </div>
-
-      <button onclick="window.print()" class="btn-primary print-btn">🖨️ Print Recipe</button>
-    `;
-  }
-
-  loadRecipe();
-</script>
-
+<script src="recipe-script.js"></script>
 </body>
 </html>
