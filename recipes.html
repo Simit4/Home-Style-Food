@@ -4,34 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recipes | Home Style Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <header>
   <div class="container header-container">
     <h1>Home Style Food</h1>
-  <nav class="navbar">
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li> <!-- NEW -->
-  </ul>
-</nav>
-
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<main class="container">
-  <section class="recipes-section">
-    <h2>All Recipes</h2>
-    <div id="recipes-container" class="recipes-grid">
-      <!-- Recipes will load here dynamically -->
-    </div>
+<main class="container recipes-section">
+  <h2>All Recipes</h2>
+  <section id="recipes-container" class="recipes-grid">
+    <!-- Recipes loaded here by JS -->
   </section>
 </main>
 
@@ -41,7 +36,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 <script src="scripts.js"></script>
-
 </body>
 </html>
