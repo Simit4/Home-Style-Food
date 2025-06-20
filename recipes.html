@@ -4,82 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recipes | Home Style Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .recipes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      padding: 2rem 1rem;
-      max-width: 1100px;
-      margin: 0 auto 4rem;
-    }
-    .recipe-card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .recipe-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-    }
-    .recipe-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      color: #2d572c;
-      font-size: 1.4rem;
-      margin: 0.5rem 0 0.8rem;
-    }
-    .recipe-description {
-      color: #555;
-      font-size: 1rem;
-      flex-grow: 1;
-      margin-bottom: 1rem;
-    }
-    .btn-secondary {
-      background-color: #d0f0c0;
-      color: #2d572c;
-      padding: 0.5rem 1.25rem;
-      border-radius: 20px;
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      user-select: none;
-      align-self: flex-start;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-secondary:hover {
-      background-color: #b0d0a0;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
 <header>
   <div class="container header-container">
     <h1>Home Style Food</h1>
     <nav class="navbar">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main>
-  <h2 style="text-align:center; margin: 2rem 0; color:#2d572c; font-family:'Poppins', sans-serif; font-weight:700;">Latest Recipes</h2>
-  <div class="recipes-grid" id="recipes-grid">
-    <!-- Recipes will load here -->
-  </div>
+<main class="container">
+  <section class="recipes-section">
+    <h2>All Recipes</h2>
+    <div id="recipes-container" class="recipes-grid">
+      <!-- Recipes will load here dynamically -->
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -88,29 +39,7 @@
   </div>
 </footer>
 
-<script>
-  async function loadRecipes() {
-    try {
-      const res = await fetch('recipes.json');
-      if (!res.ok) throw new Error('Failed to load recipes.json');
-      const data = await res.json();
-
-      const grid = document.getElementById('recipes-grid');
-      grid.innerHTML = data.map(recipe => `
-        <article class="recipe-card">
-          <iframe src="${recipe.video}" allowfullscreen></iframe>
-          <h3 class="recipe-title">${recipe.title}</h3>
-          <p class="recipe-description">${recipe.description || ''}</p>
-          <a class="btn-secondary" href="recipe.html?id=${recipe.id}">View Recipe</a>
-        </article>
-      `).join('');
-    } catch (err) {
-      console.error(err);
-      document.getElementById('recipes-grid').textContent = 'Failed to load recipes.';
-    }
-  }
-  window.onload = loadRecipes;
-</script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
