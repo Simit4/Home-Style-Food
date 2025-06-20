@@ -11,7 +11,7 @@ const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 async function loadRecipes() {
   try {
     // Fetch all recipes from the "recipes" table
-    const { data: recipes, error } = await supabase.from('recipes').select('*');
+const { data, error } = await supabase.from("recipe-db").select("*");
 
     if (error) {
       console.error('Error fetching recipes:', error.message);
