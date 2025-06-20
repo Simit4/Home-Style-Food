@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recipes | Home Style Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script defer src="scripts.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 
@@ -16,16 +16,17 @@
     <nav class="navbar">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="recipes-section">
-  <h2>Our Recipes</h2>
-  <div id="recipes-container" class="recipes-grid">
-    <!-- Recipes will be loaded here by JS -->
+<main class="container recipes-section">
+  <h2>All Recipes</h2>
+  <div class="recipes-grid" id="recipesGrid">
+    <!-- Recipes will be dynamically inserted here -->
   </div>
 </main>
 
@@ -34,6 +35,43 @@
     <p>© 2025 Home Style Food. All rights reserved.</p>
   </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+<script>
+  // Initialize Supabase client
+  const supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co';  // Replace with your project URL
+  const supabaseKey = 'YOUR_ANON_KEY';  // Replace with your anon key
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function loadRecipes() {
+    const { data, error } = await supabase
+      .from('recipes')
+      .select('*')
+      .order('title', { ascending: true });
+
+    if (error) {
+      console.error('Error loading recipes:', error);
+      document.getElementById('recipesGrid').innerHTML = '<p>Failed to load recipes.</p>';
+      return;
+    }
+
+    const container = document.getElementById('recipesGrid');
+    container.innerHTML = '';
+
+    data.forEach(recipe => {
+      const card = document.createElement('article');
+      card.className = 'recipe-card';
+      card.innerHTML = `
+        <iframe src="${recipe.video}" title="${recipe.title}" allowfullscreen></iframe>
+        <h3>${recipe.title}</h3>
+        <a href="recipe.html?id=${recipe.id}" class="btn-secondary">View Recipe</a>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  loadRecipes();
+</script>
 
 </body>
 </html>
