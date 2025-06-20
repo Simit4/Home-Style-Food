@@ -1,70 +1,43 @@
-const SUPABASE_URL = 'https://YOUR-PROJECT-URL.supabase.co'; // replace
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5endwanhjZnV1cWlweW96aHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0MDAyOTYsImV4cCI6MjA2NTk3NjI5Nn0.1Z88yKnjP8_rY23C5qyt_gQIK5Obb6VAzaUMycts1eo'; // replace
-
+const SUPABASE_URL = 'https://YOUR-SUPABASE-URL.supabase.co';
+const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// Fetch all recipes
-async function fetchRecipes() {
-  const { data, error } = await supabase
-    .from('recipes')
-    .select('*');
+async function loadRecipes() {
+  const { data, error } = await supabase.from('recipes').select('*');
 
   if (error) {
     console.error('Error fetching recipes:', error);
-    return [];
+    return;
   }
-  return data;
-}
 
-// Render recipe cards on pages
-async function renderRecipes(containerId, featured = false) {
-  const container = document.getElementById(containerId);
+  const container = document.getElementById('recipes-container');
   if (!container) return;
 
-  const recipes = await fetchRecipes();
-
-  let filtered = recipes;
-  if (featured) {
-    filtered = recipes.slice(0, 3); // show first 3 featured
-  }
-
-  container.innerHTML = '';
-
-  filtered.forEach(recipe => {
-    const card = document.createElement('article');
-    card.className = 'recipe-card';
-
-    card.innerHTML = `
-      <iframe src="${recipe.video}" allowfullscreen frameborder="0" ></iframe>
+  container.innerHTML = data.map(recipe => `
+    <article class="recipe-card">
+      <iframe width="100%" height="200" src="${recipe.video}" title="${recipe.title}" allowfullscreen></iframe>
       <h3>${recipe.title}</h3>
-      <button class="btn-secondary" onclick="toggleDetails('${recipe.id}')">View Recipe</button>
-      <div id="details-${recipe.id}" class="recipe-details" style="display:none; padding: 1rem; color:#444;">
-        <h4>Ingredients</h4>
-        <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
-        <h4>Method</h4>
-        <ol>${recipe.method.map(m => `<li>${m}</li>`).join('')}</ol>
-      </div>
-    `;
-
-    container.appendChild(card);
-  });
+      <a class="btn-secondary" href="recipe.html?id=${recipe.id}">View Recipe</a>
+    </article>
+  `).join('');
 }
 
-function toggleDetails(id) {
-  const el = document.getElementById(`details-${id}`);
-  if (el.style.display === 'none') {
-    el.style.display = 'block';
-  } else {
-    el.style.display = 'none';
+async function loadSingleRecipe() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  if (!id) return;
+
+  const { data, error } = await supabase.from('recipes').select('*').eq('id', id).single();
+  if (error) {
+    console.error('Error loading recipe:', error);
+    return;
   }
+
+  document.getElementById('recipe-title').textContent = data.title;
+  document.getElementById('video-frame').src = data.video;
+  document.getElementById('ingredients-list').innerHTML = data.ingredients.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('method-steps').innerHTML = data.method.map(s => `<li>${s}</li>`).join('');
 }
 
-// Initialize based on page
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('featured-recipes')) {
-    renderRecipes('featured-recipes', true);
-  }
-  if (document.getElementById('recipes-container')) {
-    renderRecipes('recipes-container');
-  }
-});
+if (document.getElementById('recipes-container')) loadRecipes();
+if (document.getElementById('recipe-title')) loadSingleRecipe();
