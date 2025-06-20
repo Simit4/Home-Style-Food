@@ -11,7 +11,7 @@ function getQueryParam(param) {
 
 // Load all recipes (for recipes.html)
 async function loadRecipes() {
-  const { data, error } = await supabase.from('recipe-db').select('*');
+  const { data, error } = await supabase.from('recipe_db').select('*');
   if (error) {
     console.error('Error loading recipes:', error);
     return;
@@ -38,7 +38,7 @@ async function loadRecipes() {
 // Load one recipe (for recipe.html)
 async function loadRecipeById(id) {
   const { data: recipe, error } = await supabase
-    .from('recipe-db')
+    .from('recipe_db')
     .select('*')
     .eq('id', id)
     .single();
