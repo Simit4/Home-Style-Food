@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recipes | Home Style Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script defer src="scripts.js"></script>
 </head>
 <body>
 
@@ -16,18 +16,17 @@
     <nav class="navbar">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="container recipes-section">
-  <h2>All Recipes</h2>
-  <section id="recipes-container" class="recipes-grid">
-    <!-- Recipes loaded here by JS -->
-  </section>
+<main class="recipes-section">
+  <h2>Our Recipes</h2>
+  <div id="recipes-container" class="recipes-grid">
+    <!-- Recipes will be loaded here by JS -->
+  </div>
 </main>
 
 <footer>
@@ -36,7 +35,5 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
-<script src="scripts.js"></script>
 </body>
 </html>
