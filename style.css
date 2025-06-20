@@ -28,7 +28,7 @@ a {
 header {
   background-color: #d0f0c0;
   padding: 1rem 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -36,8 +36,12 @@ header {
 }
 
 @keyframes slideDown {
-  from {transform: translateY(-100%);}
-  to {transform: translateY(0);}
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .header-container {
@@ -102,8 +106,14 @@ nav a:hover {
 }
 
 @keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero h2 {
@@ -135,7 +145,7 @@ nav a:hover {
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(58,128,55,0.5);
+  box-shadow: 0 6px 12px rgba(58, 128, 55, 0.5);
   transition: background-color 0.3s ease, transform 0.2s ease;
   display: inline-block;
 }
@@ -143,7 +153,7 @@ nav a:hover {
 .btn-primary:hover {
   background-color: #2d572c;
   transform: translateY(-3px);
-  box-shadow: 0 8px 14px rgba(45,87,44,0.7);
+  box-shadow: 0 8px 14px rgba(45, 87, 44, 0.7);
 }
 
 /* Recipes Section */
@@ -174,7 +184,7 @@ nav a:hover {
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -183,7 +193,7 @@ nav a:hover {
 
 .recipe-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 .recipe-card iframe {
@@ -199,6 +209,13 @@ nav a:hover {
   font-weight: 700;
   font-size: 1.4rem;
   margin: 1rem 1rem 0.5rem;
+}
+
+.recipe-card p {
+  margin: 0 1rem 1.2rem;
+  color: #555;
+  font-size: 1rem;
+  flex-grow: 1;
 }
 
 .btn-secondary {
@@ -221,52 +238,68 @@ nav a:hover {
   background-color: #b0d0a0;
 }
 
-/* Recipe Page */
+/* Recipe Detail Page */
 .recipe-page {
   padding: 2rem 1rem;
 }
 
-.recipe-content-wrapper {
+.recipe-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #2d572c;
+  text-align: center;
+}
+
+.recipe-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.recipe-content {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .video-wrapper {
   flex: 1 1 400px;
-  max-width: 480px;
+  max-width: 500px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(58,128,55,0.4);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .video-wrapper iframe {
   width: 100%;
-  height: 270px;
+  height: 280px;
   border: none;
   display: block;
 }
 
 .ingredients-method {
-  flex: 1 1 320px;
+  flex: 1 1 350px;
   max-width: 400px;
 }
 
 .ingredients-method h3 {
   font-family: 'Poppins', sans-serif;
-  color: #2d572c;
-  margin-bottom: 0.7rem;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: #2d572c;
+  margin-bottom: 1rem;
 }
 
 .ingredients-method ul,
 .ingredients-method ol {
-  margin-left: 1.2rem;
-  margin-bottom: 1.8rem;
-  color: #555;
+  padding-left: 1.2rem;
   font-size: 1rem;
+  color: #444;
   line-height: 1.5;
 }
 
@@ -280,25 +313,13 @@ nav a:hover {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .print-btn:hover {
   background-color: #2d572c;
-}
-
-/* About Section */
-.about-section {
-  padding: 3rem 1rem 4rem;
-  background-color: #f3f9f0;
-  color: #2d572c;
-  max-width: 700px;
-  margin: 2rem auto 4rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(45,87,44,0.15);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
 
 /* Footer */
@@ -312,14 +333,20 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .recipe-content-wrapper {
+@media (max-width: 900px) {
+  .recipe-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .video-wrapper, .ingredients-method {
+  .video-wrapper,
+  .ingredients-method {
     max-width: 100%;
+    flex: none;
+  }
+
+  .video-wrapper iframe {
+    height: 240px;
   }
 }
 
@@ -340,9 +367,4 @@ footer {
 
   .hero {
     height: 320px;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-}
+ 
