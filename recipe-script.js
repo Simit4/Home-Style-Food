@@ -1,5 +1,5 @@
-const supabaseUrl = 'https://your-project-id.supabase.co';  // Replace with your Supabase URL
-const supabaseKey = 'your-anon-key'; // Replace with your anon key
+const supabaseUrl = 'https://hyzwpjxcfuuqipyozhvh.supabase.co';  // Replace with your Supabase URL
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5endwanhjZnV1cWlweW96aHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0MDAyOTYsImV4cCI6MjA2NTk3NjI5Nn0.1Z88yKnjP8_rY23C5qyt_gQIK5Obb6VAzaUMycts1eo'; // Replace with your anon key
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 function getRecipeId() {
