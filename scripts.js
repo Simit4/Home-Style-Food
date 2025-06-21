@@ -1,75 +1,46 @@
-// scripts.js
+// Your Supabase credentials (replace with your actual keys)
+const SUPABASE_URL = 'https://hyzwpjxcfuuqipyozhvh.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5endwanhjZnV1cWlweW96aHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0MDAyOTYsImV4cCI6MjA2NTk3NjI5Nn0.1Z88yKnjP8_rY23C5qyt_gQIK5Obb6VAzaUMycts1eo'; // replace this with your actual anon key
 
-// Initialize Supabase client with your URL and anon key
-const supabaseUrl = 'https://hyzwpjxcfuuqipyozhvh.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5endwanhjZnV1cWlweW96aHZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA0MDAyOTYsImV4cCI6MjA2NTk3NjI5Nn0.1Z88yKnjP8_rY23C5qyt_gQIK5Obb6VAzaUMycts1eo';
-// Supabase setup
+// Initialize Supabase client
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+async function loadRecipes() {
+  // Fetch all recipes from recipe_db table
+  const { data: recipes, error } = await supabase
+    .from('recipe_db')
+    .select('*');
 
-// Get current page
-const path = window.location.pathname;
-
-// Render all recipes on recipes.html
-if (path.includes("recipes.html")) {
-  fetchAndDisplayRecipes();
-}
-
-// Render single recipe on recipe.html
-if (path.includes("recipe.html")) {
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
-  if (slug) {
-    fetchSingleRecipe(slug);
-  }
-}
-
-// Get all recipes from Supabase
-async function fetchAndDisplayRecipes() {
-  const { data, error } = await supabase.from("recipe_db").select("*");
   if (error) {
-    console.error("Error fetching recipes:", error.message);
+    console.error('Error fetching recipes:', error);
     return;
   }
 
-  const container = document.getElementById("recipes-container");
-  if (!container) return;
+  const container = document.getElementById('recipes-container');
+  container.innerHTML = '';
 
-  container.innerHTML = "";
+  if (!recipes || recipes.length === 0) {
+    container.innerHTML = '<p>No recipes found.</p>';
+    return;
+  }
 
-  data.forEach((recipe) => {
-    const card = document.createElement("div");
-    card.className = "recipe-card";
+  recipes.forEach(recipe => {
+    const card = document.createElement('div');
+    card.classList.add('recipe-card');
 
     card.innerHTML = `
       <iframe src="${recipe.video_url}" allowfullscreen></iframe>
       <h3>${recipe.title}</h3>
-      <p>${recipe.description || ""}</p>
-      <a class="btn-secondary" href="recipe.html?slug=${recipe.slug}">View Recipe</a>
+      <p>${recipe.description || ''}</p>
+      <h4>Ingredients:</h4>
+      <ul>${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}</ul>
+      <h4>Method:</h4>
+      <ol>${recipe.method.map(step => `<li>${step}</li>`).join('')}</ol>
+      <a href="recipe.html?slug=${recipe.slug}" class="btn-secondary">View Recipe</a>
     `;
 
     container.appendChild(card);
   });
 }
 
-// Get single recipe from Supabase
-async function fetchSingleRecipe(slug) {
-  const { data, error } = await supabase
-    .from("recipe_db")
-    .select("*")
-    .eq("slug", slug)
-    .single();
-
-  if (error) {
-    console.error("Error fetching recipe:", error.message);
-    return;
-  }
-
-  const container = document.getElementById("recipe-content");
-  if (!container) return;
-
-  container.innerHTML = `
-    <h2 class="recipe-title">${data.title}</h2>
-    <p class="recipe-subtitle">${data.description || ""}</p>
-    <div class="recipe-layout
-
+document.addEventListener('DOMContentLoaded', loadRecipes);
