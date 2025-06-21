@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -24,10 +23,12 @@
   </div>
 </header>
 
-<main class="container recipe-page">
-  <div id="recipe-content">
-    <!-- Recipe details loaded by JS -->
-  </div>
+<main class="container">
+  <article id="recipe-detail">
+    <div class="loading-state">
+      <i class="fas fa-spinner fa-spin"></i> Loading recipe...
+    </div>
+  </article>
 </main>
 
 <footer>
@@ -36,6 +37,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script src="scripts.js"></script>
 </body>
 </html>
