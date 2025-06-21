@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recipe | Home Style Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe | Video Recipes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <div class="container header-container">
-    <h1>Home Style Food</h1>
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-        <li><a href="submit-recipe.html"><i class="fas fa-plus-circle"></i> Submit Recipe</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-  <article id="recipe-detail">
-    <div class="loading-state">
-      <i class="fas fa-spinner fa-spin"></i> Loading recipe...
+  <header>
+    <div class="container header-container">
+      <h1>Video Recipes</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+          <li><a href="submit-recipe.html"><i class="fas fa-plus-circle"></i> Submit Recipe</a></li>
+        </ul>
+      </nav>
     </div>
-  </article>
-  
-  <section class="similar-recipes">
-    <h3>You Might Also Like</h3>
-    <div class="recipes-grid" id="similar-recipes-container">
-      <!-- Filled by JavaScript -->
-    </div>
-  </section>
-</main>
+  </header>
 
-<footer>
-  <div class="container footer-container">
-    <div class="footer-links">
-      <a href="about.html">About Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <p>© 2025 Home Style Food. All rights reserved.</p>
-  </div>
-</footer>
+  <main class="container">
+    <article id="recipe-detail">
+      <div class="loading-state">
+        <i class="fas fa-spinner fa-spin"></i> Loading video recipe...
+      </div>
+    </article>
+  </main>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="scripts.js"></script>
+  <footer>
+    <div class="container footer-container">
+      <p>© 2023 Video Recipes. All recipes include YouTube videos.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
