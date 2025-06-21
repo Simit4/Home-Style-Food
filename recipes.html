@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recipes | Home Style Food</title>
+  <title>All Recipes | Home Style Food</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -17,18 +16,26 @@
     <nav class="navbar">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="recipes.html" class="active"><i class="fas fa-utensils"></i> Recipes</a></li>
         <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="container recipes-section">
-  <h2>All Recipes</h2>
-  <div id="recipes-container" class="recipes-grid">
-    <!-- Recipes loaded here by JS -->
-  </div>
+<main class="container">
+  <section class="all-recipes">
+    <h2><i class="fas fa-utensils"></i> All Recipes</h2>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search recipes...">
+      <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="recipes-grid" id="recipes-container">
+      <div class="loading-state">
+        <i class="fas fa-spinner fa-spin"></i> Loading recipes...
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -37,6 +44,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script src="scripts.js"></script>
 </body>
 </html>
