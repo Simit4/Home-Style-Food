@@ -17,6 +17,7 @@
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="recipes.html" class="active"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="submit-recipe.html"><i class="fas fa-plus-circle"></i> Submit Recipe</a></li>
         <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
@@ -25,21 +26,40 @@
 
 <main class="container">
   <section class="all-recipes">
-    <h2><i class="fas fa-utensils"></i> All Recipes</h2>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search recipes...">
-      <button id="search-btn"><i class="fas fa-search"></i></button>
+    <div class="recipes-header">
+      <h2><i class="fas fa-utensils"></i> All Recipes</h2>
+      <a href="submit-recipe.html" class="btn-primary"><i class="fas fa-plus"></i> Add Recipe</a>
     </div>
+    
+    <div class="search-filter">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search recipes...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      <select id="category-filter">
+        <option value="">All Categories</option>
+      </select>
+    </div>
+    
     <div class="recipes-grid" id="recipes-container">
       <div class="loading-state">
         <i class="fas fa-spinner fa-spin"></i> Loading recipes...
       </div>
+    </div>
+    
+    <div class="pagination" id="pagination">
+      <!-- Pagination will be added here by JavaScript -->
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container footer-container">
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
     <p>© 2025 Home Style Food. All rights reserved.</p>
   </div>
 </footer>
