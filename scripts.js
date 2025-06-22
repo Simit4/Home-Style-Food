@@ -13,18 +13,37 @@ async function loadRecipes() {
     return;
   }
 
-  const container = document.getElementById('recipes-container');
-  container.innerHTML = '';
+ const recipesContainer = document.getElementById('recipes-container');
 
-  data.forEach(recipe => {
+async function loadRecipes() {
+  // Initialize Supabase (use your own keys)
+  const supabaseUrl = 'https://your-project-url.supabase.co';
+  const supabaseKey = 'your-anon-key';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  let { data: recipes, error } = await supabase
+    .from('recipe_db')
+    .select('*');
+
+  if (error) {
+    console.error('Error fetching recipes:', error);
+    recipesContainer.innerHTML = '<p>Failed to load recipes.</p>';
+    return;
+  }
+
+  recipesContainer.innerHTML = ''; // clear container
+
+  recipes.forEach(recipe => {
     const card = document.createElement('div');
-    card.className = 'recipe-card';
+    card.classList.add('recipe-card');
+
     card.innerHTML = `
-      <h3>${recipe.title}</h3>
+      <h3><a href="recipe.html?slug=${encodeURIComponent(recipe.slug)}">${recipe.title}</a></h3>
       <p>${recipe.description || ''}</p>
-      <a href="recipe.html?slug=${recipe.slug}" class="btn-primary">View Recipe</a>
+      <iframe width="100%" height="180" src="${recipe.video_url}" frameborder="0" allowfullscreen></iframe>
     `;
-    container.appendChild(card);
+
+    recipesContainer.appendChild(card);
   });
 }
 
