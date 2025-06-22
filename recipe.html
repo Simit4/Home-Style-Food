@@ -25,21 +25,32 @@
 </header>
 
 <main class="container recipe-page">
-  <div class="recipe-layout">
-    <div class="recipe-text">
-      <h2 id="recipe-title">Loading...</h2>
-      <p id="recipe-description"></p>
-      <h3>🛒 Ingredients</h3>
-      <ul id="ingredients-list"></ul>
-      <h3>👨‍🍳 Method</h3>
-      <ol id="method-list"></ol>
-      <button onclick="window.print()" class="btn-print"><i class="fas fa-print"></i> Print Recipe</button>
+  <div class="recipe-details">
+    <h2 id="recipe-title">Recipe Title</h2>
+    <p class="description" id="recipe-description">Short description of the recipe.</p>
+
+    <div class="recipe-section">
+      <h3>Ingredients</h3>
+      <ul id="recipe-ingredients">
+        <!-- JS will populate this list -->
+      </ul>
     </div>
-    <div class="recipe-video">
-      <iframe id="recipe-video" src="" frameborder="0" allowfullscreen></iframe>
+
+    <div class="recipe-section">
+      <h3>Method</h3>
+      <ol id="recipe-method">
+        <!-- JS will populate this ordered list -->
+      </ol>
     </div>
+
+    <button class="print-btn" onclick="window.print()">Print Recipe</button>
+  </div>
+
+  <div class="recipe-video-container">
+    <iframe id="recipe-video" src="" title="Recipe Video" allowfullscreen></iframe>
   </div>
 </main>
+
 
 <footer>
   <div class="container footer-container">
