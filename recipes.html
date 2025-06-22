@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recipes | Home Style Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body>
-  <header>
-    <div class="container header-container">
-      <h1>Home Style Food</h1>
-      <nav class="navbar">
-        <ul>
-          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-          <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="container recipes-section">
-    <h2>All Recipes</h2>
-    <div id="recipes-container" class="recipes-grid"></div>
-  </main>
-  <footer>
-    <div class="container footer-container">
-      <p>© 2025 Home Style Food. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="scripts.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html><body>
+<h1>TEST SUPABASE CONNECTIVITY</h1>
+<div id="out">Loading...</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const url = 'https://ozdwocrbrojtyogolqxn.supabase.co';
+  const key = 'YOUR_ANON_KEY'; // put your real anon key here
+  const supabase = supabase.createClient(url, key);
+
+  supabase
+    .from('recipe_db')
+    .select('slug')
+    .limit(1)
+    .then(({ data, error }) => {
+      document.getElementById('out').innerText =
+        error ? '❌ Error: ' + error.message : '✅ Success! First slug: ' + data[0].slug;
+    });
+</script>
+</body></html>
