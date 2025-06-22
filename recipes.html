@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Recipes | Video Recipes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipes | Home Style Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <header>
     <div class="container header-container">
-      <h1>Video Recipes</h1>
+      <h1>Home Style Food</h1>
       <nav class="navbar">
         <ul>
           <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="recipes.html" class="active"><i class="fas fa-utensils"></i> Recipes</a></li>
-          <li><a href="submit-recipe.html"><i class="fas fa-plus-circle"></i> Submit Recipe</a></li>
+          <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <main class="container">
-    <section class="all-recipes">
-      <h2><i class="fas fa-video"></i> All Video Recipes</h2>
-      <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search recipes...">
-        <button id="search-btn"><i class="fas fa-search"></i></button>
-      </div>
-      <div class="videos-grid" id="recipes-container">
-        <div class="loading-state">
-          <i class="fas fa-spinner fa-spin"></i> Loading videos...
-        </div>
-      </div>
-      <div class="pagination" id="pagination"></div>
-    </section>
+  <main class="container recipes-section">
+    <h2>All Recipes</h2>
+    <div id="recipes-container" class="recipes-grid"></div>
   </main>
-
   <footer>
     <div class="container footer-container">
-      <p>© 2023 Video Recipes. All recipes include YouTube videos.</p>
+      <p>© 2025 Home Style Food. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="scripts.js"></script>
 </body>
 </html>
