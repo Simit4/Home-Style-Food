@@ -4,7 +4,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const url = 'https://ozdwocrbrojtyogolqxn.supabase.co';
-  const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // put your real anon key here
+  const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // Replace this with your real anon key
+
   const supabase = supabase.createClient(url, key);
 
   supabase
@@ -12,8 +13,16 @@
     .select('slug')
     .limit(1)
     .then(({ data, error }) => {
-      document.getElementById('out').innerText =
-        error ? '❌ Error: ' + error.message : '✅ Success! First slug: ' + data[0].slug;
+      console.log('Data:', data);
+      console.log('Error:', error);
+      const out = document.getElementById('out');
+      if (error) {
+        out.innerText = '❌ Error: ' + error.message;
+      } else if (data.length === 0) {
+        out.innerText = '⚠️ No data found';
+      } else {
+        out.innerText = '✅ Success! First slug: ' + data[0].slug;
+      }
     });
 </script>
 </body></html>
