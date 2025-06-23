@@ -45,14 +45,14 @@ h1, h2, h3 {
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 20px 30px; /* Increased padding for taller header */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 34px; /* Larger logo text */
   font-weight: bold;
   color: #00b894;
   margin: 0;
@@ -61,7 +61,7 @@ h1, h2, h3 {
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px; /* Optional: slightly more space between links */
   margin: 0;
   padding: 0;
 }
@@ -70,13 +70,14 @@ h1, h2, h3 {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px; /* Slightly bigger font for links */
   transition: color 0.3s ease;
 }
 
 .navbar .nav-links li a:hover {
   color: #00b894;
 }
+
 
 
 
