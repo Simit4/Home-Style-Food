@@ -266,15 +266,19 @@ footer {
 }
 
 #search-input {
-  padding: 8px 12px;
-  font-size: 0.95rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
   width: 200px;
-  transition: border-color 0.2s;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 }
 
 #search-input:focus {
-  border-color: #27ae60;
   outline: none;
+  border-color: #27ae60;
+  box-shadow: 0 0 5px rgba(39, 174, 96, 0.4);
 }
