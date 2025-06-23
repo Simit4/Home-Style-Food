@@ -54,23 +54,6 @@ searchInput.addEventListener('input', function () {
 
 
 
-//HEADER
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  const darkToggle = document.getElementById('dark-toggle');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkToggle.innerHTML = document.body.classList.contains('dark-mode')
-      ? '<i class="fas fa-sun"></i>'
-      : '<i class="fas fa-moon"></i>';
-  });
-</script>
 
 
