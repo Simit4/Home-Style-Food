@@ -12,7 +12,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const equipmentList = document.getElementById('equipment-list');
 
 async function loadEquipment() {
-  const { data, error } = await supabase.from('equipment').select('*'); // Make sure your table name is 'equipment'
+  const { data, error } = await supabase.from('equipment_db').select('*'); // Make sure your table name is 'equipment'
 
   if (error) {
     console.error('Error fetching equipment:', error);
