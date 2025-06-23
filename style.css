@@ -433,27 +433,59 @@ body.dark-mode .login-btn {
 
 .equipment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  margin-top: 2rem;
 }
-
 .equipment-item {
-  background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
-
 .equipment-item:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
 }
 
-.equipment-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+
+.equipment-image {
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.equipment-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+  min-height: 50px;
+}  
+
+.btn-buy {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ff5c00;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: #e04e00;
+}
+
+.equipment-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
 .equipment-content {
