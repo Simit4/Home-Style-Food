@@ -30,30 +30,34 @@ h1, h2, h3 {
   padding: 1rem;
 }
 
+
+
+
+
 /* === HEADER === */
 .main-header {
   background-color: #ffffff;
   color: #333;
-  border-bottom: 2px solid #00b894;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-bottom: 3px solid #00b894;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
   font-family: 'Poppins', sans-serif;
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 20px 30px; /* Increased padding for taller header */
+  padding: 30px 40px; /* Bigger header height */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 34px; /* Larger logo text */
-  font-weight: bold;
+  font-size: 42px; /* Larger logo text */
+  font-weight: 800;
   color: #00b894;
   margin: 0;
 }
@@ -61,7 +65,7 @@ h1, h2, h3 {
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 40px; /* Optional: slightly more space between links */
+  gap: 50px; /* More space between menu items */
   margin: 0;
   padding: 0;
 }
@@ -70,14 +74,13 @@ h1, h2, h3 {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: 18px; /* Slightly bigger font for links */
+  font-size: 20px; /* Bigger font size for nav links */
   transition: color 0.3s ease;
 }
 
 .navbar .nav-links li a:hover {
   color: #00b894;
 }
-
 
 
 
