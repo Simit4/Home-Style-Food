@@ -2,11 +2,6 @@
 
 
 
-/* Make sure body and html take full height */
-html, body {
-  height: 100%;
-  margin: 0;
-}
 
 /* Center the main container vertically and horizontally */
 main {
