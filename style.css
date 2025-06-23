@@ -260,22 +260,22 @@ footer {
 
 //search bar on recipes.html
 
-.search-bar-right {
+.search-container {
   text-align: right;
-  margin: 1rem 0;
+  margin-bottom: 20px;
 }
 
-#search-input {
+.search-container input[type="text"] {
   padding: 8px 12px;
-  font-size: 0.95rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Slight curve */
+  font-size: 14px;
   width: 200px;
-  transition: border-color 0.2s;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-#search-input:focus {
-  border-color: #27ae60;
-  outline: none;
+.search-container input[type="text"]:focus {
+  border-color: #28a745; /* Highlight on focus */
 }
 
