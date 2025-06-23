@@ -261,34 +261,44 @@ footer {
 //search bar on recipes.html
 
 .search-container {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
+  position: relative;
+  max-width: 500px;
+  margin: 2rem auto;
+  width: 90%;
 }
 
 #search-input {
   width: 100%;
-  max-width: 500px;
-  padding: 12px 20px;
+  padding: 12px 40px 12px 20px;
   font-size: 1rem;
   font-family: 'Open Sans', sans-serif;
   border: 2px solid #27ae60;
-  border-radius: 50px;
-  background-color: #f9f9f9;
-  color: #333;
+  border-radius: 30px;
+  background-color: #fefefe;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 #search-input::placeholder {
-  color: #aaa;
+  color: #bbb;
 }
 
 #search-input:focus {
   outline: none;
   border-color: #2ecc71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.3);
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
 }
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
 
 
