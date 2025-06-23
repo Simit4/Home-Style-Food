@@ -203,9 +203,15 @@ footer {
 
 /* About Page */
 .about-main {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+  color: #444;
+  border: 2px solid #ccc;      /* light gray border */
+  border-radius: 10px;         /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow for depth */
+  background-color: #fff;      /* white background inside border */
 }
 
 .about-box {
