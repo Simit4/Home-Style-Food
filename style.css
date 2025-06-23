@@ -209,23 +209,28 @@ footer {
 }
 
 .about-box {
-  background-color: #f8f9fa;
+  background-color: #fff;
   padding: 2rem;
-  border: 2px solid #ddd;
+  border: 2px solid #27ae60;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   max-width: 700px;
   text-align: center;
+  width: 100%;
 }
 
 .about-box h2 {
   margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
 .about-box p {
   margin-bottom: 1rem;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
