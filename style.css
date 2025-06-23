@@ -130,12 +130,13 @@ header h1 {
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-/* About Page */
+/* About Page - no video */
 .about-page {
   padding: 3rem 0;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  color: #444;
 }
 
 .about-intro h2 {
@@ -150,21 +151,11 @@ header h1 {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: #444;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.about-video {
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.about-video iframe {
-  width: 100%;
-  height: 340px;
-}
 
 /* Recipes Section */
 .recipes-section {
