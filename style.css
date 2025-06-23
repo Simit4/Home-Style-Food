@@ -268,7 +268,7 @@ footer {
 .search-container input[type="text"] {
   padding: 8px 12px;
   border: 1px solid #ccc;
-  border-radius: 6px; /* Slight curve */
+  border-radius: 12px; /* more curve */
   font-size: 14px;
   width: 200px;
   outline: none;
