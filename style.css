@@ -1,3 +1,28 @@
+
+
+
+
+/* Make sure body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Center the main container vertically and horizontally */
+main {
+  display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
+  height: 100vh;            /* full viewport height */
+  background-color: #f9f9f9; /* optional light background */
+}
+
+
+
+
+
+
+
 /* Reset & base */
 * {
   box-sizing: border-box;
