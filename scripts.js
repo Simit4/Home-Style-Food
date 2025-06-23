@@ -38,3 +38,17 @@ async function loadAllRecipes() {
 }
 
 loadAllRecipes();
+
+
+const searchInput = document.getElementById('search-input');
+
+searchInput.addEventListener('input', function () {
+  const searchTerm = this.value.toLowerCase();
+  const recipeCards = document.querySelectorAll('.recipe-card');
+
+  recipeCards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+  });
+});
+
