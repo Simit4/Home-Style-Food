@@ -37,7 +37,7 @@ h1, h2, h3 {
 /* === HEADER === */
 .main-header {
   background-color: #242e71;
-  color: #fbeee6;
+  color: #333;
   border-bottom: 3px solid #00b894;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -58,7 +58,7 @@ h1, h2, h3 {
 .logo {
   font-size: 42px; /* Larger logo text */
   font-weight: 800;
-  color: #00b894;
+  color: #fbeee6;
   margin: 0;
 }
 
