@@ -37,7 +37,7 @@ h1, h2, h3 {
 /* === HEADER === */
 .main-header {
   background-color: #242e71;
-  color: #333;
+  color: #fbeee6;
   border-bottom: 3px solid #00b894;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
