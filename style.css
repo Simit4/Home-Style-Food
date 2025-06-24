@@ -72,7 +72,7 @@ h1, h2, h3 {
 
 .navbar .nav-links li a {
   text-decoration: none;
-  color: #333;
+  color: #fbeee6;
   font-weight: 600;
   font-size: 20px; /* Bigger font size for nav links */
   transition: color 0.3s ease;
