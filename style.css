@@ -35,52 +35,65 @@ h1, h2, h3 {
 
 
 /* === HEADER === */
+/* Overall header */
 .main-header {
-  background-color: #175843;
-  color: #333;
-  border-bottom: 3px solid #00b894;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: 'Poppins', sans-serif;
+  background-color: #e8f5e9; /* light green background */
+  padding: 20px 0;
+  border-bottom: 2px solid #c8e6c9;
 }
 
-.header-content {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 30px 40px; 
+/* Flex container */
+.main-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 42px; /* Larger logo text */
-  font-weight: 800;
-  color: #fbeee6;
+/* Logo styling */
+.header-logo .logo {
+  font-size: 2.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #2e7d32;
   margin: 0;
 }
 
-.navbar .nav-links {
-  list-style: none;
+/* Nav styling */
+.main-nav .nav-links {
   display: flex;
-  gap: 50px; /* More space between menu items */
-  margin: 0;
+  gap: 25px;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.navbar .nav-links li a {
+.main-nav .nav-links li a {
   text-decoration: none;
-  color: #fbeee6;
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 20px; /* Bigger font size for nav links */
+  color: #444;
   transition: color 0.3s ease;
 }
 
-.navbar .nav-links li a:hover {
-  color: #00b894;
+.main-nav .nav-links li a:hover {
+  color: #2e7d32;
 }
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
 
 
 
@@ -428,27 +441,7 @@ ul li, ol li {
 
 
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .navbar ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .recipe-page {
-    flex-direction: column;
-  }
-
-  .recipe-video-container iframe {
-    height: 200px;
-  }
-}
 
 //search bar on recipes.html
 
