@@ -225,6 +225,39 @@ h1, h2, h3 {
 
 
 
+.recipe-meta p,
+.recipe-tags p,
+.recipe-nutrition p {
+  margin: 4px 0;
+  font-weight: 600;
+  color: #444;
+}
+
+.recipe-notes ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.share-buttons {
+  margin-top: 20px;
+}
+
+.share-buttons a {
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: #2a9d8f;
+  transition: color 0.3s ease;
+}
+
+.share-buttons a:hover {
+  color: #e76f51;
+}
+
+
+
+
+
 
 
 /* Footer */
@@ -383,37 +416,6 @@ h1, h2, h3 {
   transition: border-color 0.3s ease;
 }
 
-
-
-//header dark mode
-
-
-body.dark-mode {
-  background-color: #121212;
-  color: #f9f9f9;
-}
-
-body.dark-mode a {
-  color: #00e6c3;
-}
-
-body.dark-mode .main-header {
-  background-color: #1c1c1c;
-  border-color: #00e6c3;
-}
-
-body.dark-mode .search-form {
-  background-color: #2a2a2a;
-}
-
-body.dark-mode .login-btn {
-  background-color: #00e6c3;
-  color: #000;
-}
-
-.search-container input[type="text"]:focus {
-  border-color: #28a745; /* Highlight on focus */
-}
 
 
 
