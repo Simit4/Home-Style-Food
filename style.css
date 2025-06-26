@@ -555,3 +555,39 @@ ul li, ol li {
 .equipment-content a:hover {
   background-color: #c3001d;
 }
+
+
+
+
+
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    background: white;
+    color: black;
+  }
+
+  header, footer, .share-buttons, .print-btn, iframe {
+    display: none !important;
+  }
+
+  main.container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .recipe-left, .recipe-video {
+    width: 100% !important;
+  }
+
+  .recipe-layout {
+    display: block !important;
+  }
+
+  h2, h3 {
+    color: black !important;
+  }
+}
+
