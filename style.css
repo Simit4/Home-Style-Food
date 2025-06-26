@@ -47,7 +47,7 @@ h1, h2, h3 {
 }
 
 .header-content {
-  max-width: 1300px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 30px 40px; /* Bigger header height */
   display: flex;
