@@ -49,7 +49,7 @@ h1, h2, h3 {
 .header-content {
   max-width: 500px;
   margin: 0 auto;
-  padding: 20px 30px; 
+  padding: 30px 40px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
