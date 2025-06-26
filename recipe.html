@@ -3,33 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recipe | THE HOME COOKERY</title>
+  <title>Recipe | Home Style Food</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 
-<header class="main-header">
-  <div class="container header-content">
-    <h1 class="logo">THE HOME COOKERY</h1>
+<header>
+  <div class="container header-container">
+    <h1>Home Style Food</h1>
     <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="equipment.html"><i class="fas fa-utensils"></i> Equipment</a></li>
+      <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-
-
 <main class="container recipe-page">
   <div class="recipe-details">
+
     <h2 id="recipe-title">Recipe Title</h2>
     <p class="description" id="recipe-description">Short description of the recipe.</p>
+
+    <div class="recipe-meta">
+      <p><strong>Prep Time:</strong> <span id="prep-time">--</span></p>
+      <p><strong>Cook Time:</strong> <span id="cook-time">--</span></p>
+      <p><strong>Servings:</strong> <span id="servings">--</span></p>
+    </div>
+
+    <div class="recipe-nutrition">
+      <h3>Nutritional Info</h3>
+      <p id="nutrition-info">--</p>
+    </div>
+
+    <div class="recipe-tags">
+      <p><strong>Category:</strong> <span id="category">--</span></p>
+      <p><strong>Cuisine:</strong> <span id="cuisine">--</span></p>
+    </div>
 
     <div class="recipe-section">
       <h3>Ingredients</h3>
@@ -45,7 +59,28 @@
       </ol>
     </div>
 
+    <div class="recipe-notes">
+      <h3>Notes & Tips</h3>
+      <ul id="recipe-notes-list">
+        <!-- JS will populate this list -->
+      </ul>
+    </div>
+
+    <div class="recipe-facts">
+      <h3>Did You Know?</h3>
+      <p id="recipe-facts">--</p>
+    </div>
+
     <button class="print-btn" onclick="window.print()">Print Recipe</button>
+
+    <div class="share-buttons">
+      <h3>Share This Recipe</h3>
+      <a href="#" id="share-facebook" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" id="share-twitter" target="_blank" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" id="share-whatsapp" target="_blank" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" id="share-email" target="_blank" aria-label="Share by Email"><i class="fas fa-envelope"></i></a>
+    </div>
+
   </div>
 
   <div class="recipe-video-container">
@@ -54,42 +89,13 @@
 </main>
 
 
-<footer class="main-footer">
-  <div class="footer-container">
-    <div class="footer-column brand">
-      <h3>THE HOME COOKERY</h3>
-      <p>Simple, delicious, and homestyle recipes made with love.</p>
-    </div>
-
-    <div class="footer-column links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="equipment.html">Equipment</a></li>
-     
-      </ul>
-    </div>
-
-    <div class="footer-column social">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-<a href="https://www.youtube.com/@TheHomeCookery58" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/cookerythehome" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61577303925962" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@the.home.cookery" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 THE HOME COOKERY. All rights reserved.</p>
+<footer>
+  <div class="container footer-container">
+    <p>© 2025 Home Style Food. All rights reserved.</p>
   </div>
 </footer>
 
-
-  <script type="module" src="recipe.js"></script>
+<script type="module" src="recipe.js"></script>
 
 </body>
 </html>
