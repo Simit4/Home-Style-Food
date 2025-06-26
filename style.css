@@ -180,78 +180,56 @@ h1, h2, h3 {
 
 /* Recipe Page */
 .recipe-page {
+  padding: 2rem 0;
+}
+
+.meta-info {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.recipe-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-bottom: 2rem;
 }
 
-.recipe-details {
-  flex: 1 1 500px;
+.recipe-left {
+  flex: 1 1 55%;
 }
 
 .recipe-video-container {
-  flex: 1 1 400px;
+  flex: 1 1 40%;
+  max-width: 100%;
 }
 
 .recipe-video-container iframe {
   width: 100%;
   height: 300px;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: none;
 }
 
 .recipe-section {
-  margin: 1rem 0;
-}
-
-.recipe-section ul,
-.recipe-section ol {
-  padding-left: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .print-btn {
-  background-color: #8e44ad;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  padding: 10px 18px;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .print-btn:hover {
-  background-color: #732d91;
-}
-
-
-
-.recipe-meta p,
-.recipe-tags p,
-.recipe-nutrition p {
-  margin: 4px 0;
-  font-weight: 600;
-  color: #444;
-}
-
-.recipe-notes ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  padding: 0;
-}
-
-.share-buttons {
-  margin-top: 20px;
-}
-
-.share-buttons a {
-  margin-right: 15px;
-  font-size: 1.5rem;
-  color: #2a9d8f;
-  transition: color 0.3s ease;
-}
-
-.share-buttons a:hover {
-  color: #e76f51;
+  background: #218838;
 }
 
 
