@@ -179,57 +179,115 @@ h1, h2, h3 {
 
 
 /* Recipe Page */
+/* Main recipe page layout */
 .recipe-page {
-  padding: 2rem 0;
+  padding: 40px 0;
 }
-
-.meta-info {
-  margin: 1rem 0;
-  font-size: 0.95rem;
-  color: #444;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
 .recipe-layout {
   display: flex;
+  gap: 40px;
   flex-wrap: wrap;
-  gap: 2rem;
 }
-
 .recipe-left {
-  flex: 1 1 55%;
+  flex: 1 1 600px;
+  min-width: 300px;
 }
-
-.recipe-video-container {
-  flex: 1 1 40%;
-  max-width: 100%;
+.recipe-video {
+  flex: 1 1 400px;
+  min-width: 300px;
 }
-
-.recipe-video-container iframe {
+.recipe-video iframe {
   width: 100%;
-  height: 300px;
-  border-radius: 10px;
+  height: 360px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   border: none;
 }
 
-.recipe-section {
-  margin-bottom: 2rem;
+/* Titles & Sections */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #27ae60;
+}
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+.description {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
 }
 
+/* Lists */
+ul, ol {
+  padding-left: 20px;
+}
+ul li, ol li {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+/* Meta info */
+.recipe-meta p {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444;
+  margin: 5px 0;
+}
+
+/* Sections with text */
+.recipe-section p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Share buttons */
+.share-buttons {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.share-buttons p {
+  margin: 0;
+}
+.share-buttons a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #27ae60;
+  transition: color 0.3s ease;
+}
+.share-buttons a:hover {
+  color: #1e8449;
+}
+
+/* Print button */
 .print-btn {
-  padding: 10px 18px;
-  background: #28a745;
-  color: white;
-  font-weight: bold;
+  margin-top: 30px;
+  background: #27ae60;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.5);
+  transition: background 0.3s ease;
 }
-
 .print-btn:hover {
-  background: #218838;
+  background: #1e8449;
 }
 
 
