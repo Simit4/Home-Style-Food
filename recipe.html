@@ -25,69 +25,55 @@
 
 
 <main class="container recipe-page">
-  <div class="recipe-details">
+  <h2 id="recipe-title">Recipe Title</h2>
+  <p id="recipe-description">Recipe description...</p>
 
-    <h2 id="recipe-title">Recipe Title</h2>
-    <p class="description" id="recipe-description">Short description of the recipe.</p>
-
-    <div class="recipe-meta">
-      <p><strong>Prep Time:</strong> <span id="prep-time">--</span></p>
-      <p><strong>Cook Time:</strong> <span id="cook-time">--</span></p>
-      <p><strong>Servings:</strong> <span id="servings">--</span></p>
-    </div>
-
-    <div class="recipe-nutrition">
-      <h3>Nutritional Info</h3>
-      <p id="nutrition-info">--</p>
-    </div>
-
-    <div class="recipe-tags">
-      <p><strong>Category:</strong> <span id="category">--</span></p>
-      <p><strong>Cuisine:</strong> <span id="cuisine">--</span></p>
-    </div>
-
-    <div class="recipe-section">
-      <h3>Ingredients</h3>
-      <ul id="recipe-ingredients">
-        <!-- JS will populate this list -->
-      </ul>
-    </div>
-
-    <div class="recipe-section">
-      <h3>Method</h3>
-      <ol id="recipe-method">
-        <!-- JS will populate this ordered list -->
-      </ol>
-    </div>
-
-    <div class="recipe-notes">
-      <h3>Notes & Tips</h3>
-      <ul id="recipe-notes-list">
-        <!-- JS will populate this list -->
-      </ul>
-    </div>
-
-    <div class="recipe-facts">
-      <h3>Did You Know?</h3>
-      <p id="recipe-facts">--</p>
-    </div>
-
-    <button class="print-btn" onclick="window.print()">Print Recipe</button>
-
-    <div class="share-buttons">
-      <h3>Share This Recipe</h3>
-      <a href="#" id="share-facebook" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" id="share-twitter" target="_blank" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" id="share-whatsapp" target="_blank" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" id="share-email" target="_blank" aria-label="Share by Email"><i class="fas fa-envelope"></i></a>
-    </div>
-
+  <div class="meta-info">
+    <span><strong>Prep Time:</strong> <span id="prep-time">-</span></span>
+    <span><strong>Cook Time:</strong> <span id="cook-time">-</span></span>
+    <span><strong>Servings:</strong> <span id="servings">-</span></span>
   </div>
 
-  <div class="recipe-video-container">
-    <iframe id="recipe-video" src="" title="Recipe Video" allowfullscreen></iframe>
+  <div class="recipe-layout">
+    <div class="recipe-left">
+      <div class="recipe-section">
+        <h3>Ingredients</h3>
+        <ul id="recipe-ingredients"></ul>
+      </div>
+
+      <div class="recipe-section">
+        <h3>Method</h3>
+        <ol id="recipe-method"></ol>
+      </div>
+
+      <div class="recipe-section">
+        <h3>Tips / Notes</h3>
+        <p id="notes"></p>
+      </div>
+
+      <div class="recipe-section">
+        <h3>Nutrition</h3>
+        <p id="nutrition"></p>
+      </div>
+
+      <div class="recipe-section">
+        <h3>Facts</h3>
+        <p id="facts"></p>
+      </div>
+
+      <div class="recipe-section">
+        <strong>Tags:</strong> <span id="tags"></span>
+      </div>
+
+      <button class="print-btn" onclick="window.print()">🖨️ Print Recipe</button>
+    </div>
+
+    <div class="recipe-video-container">
+      <iframe id="recipe-video" src="" allowfullscreen></iframe>
+    </div>
   </div>
 </main>
+
 
 
 <footer class="main-footer">
