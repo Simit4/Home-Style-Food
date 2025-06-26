@@ -47,7 +47,7 @@ h1, h2, h3 {
 }
 
 .header-content {
-  max-width: 500px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 30px 40px; 
   display: flex;
