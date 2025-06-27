@@ -36,54 +36,95 @@ h1, h2, h3 {
 ========================= */
 .main-header {
   background-color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .logo {
   font-size: 2rem;
-  font-weight: bold;
-  color: #2e7d32;
+  font-weight: 800;
+  color: #2e7d32; /* rich green */
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
-  margin-top: 10px;
+  display: flex;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin: 0;
 }
 
-.nav-links a {
-  color: #444;
+.nav-links li a {
+  color: #333;
   font-weight: 600;
   font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-/* Responsive Header */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #27ae60;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #27ae60;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* ========== RESPONSIVE HEADER ========== */
 @media (max-width: 768px) {
-  .main-header {
-    padding: 12px 0;
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .logo {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
   }
 
   .nav-links {
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
+    width: 100%;
+    padding-left: 0;
   }
 
-  .nav-links a {
-    font-size: 0.95rem;
+  .nav-links li a {
+    font-size: 1rem;
+    padding: 8px 0;
   }
 }
+
 
 /* =======================
    Hero Section
