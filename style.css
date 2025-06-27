@@ -272,21 +272,7 @@ ul li, ol li {
   background: #1e8449;
 }
 
-/* Share */
-.share-buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
 
-.share-buttons a {
-  font-size: 1.6rem;
-  color: #27ae60;
-}
-
-.share-buttons a:hover {
-  color: #1e8449;
-}
 
 /* =======================
    About Page
