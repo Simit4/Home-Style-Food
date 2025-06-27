@@ -150,4 +150,222 @@ h1, h2, h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  border ​:contentReference[oaicite:0]{index=0}​
+  border: none;
+}
+
+/* =======================
+   Recipe Page
+========================= */
+.recipe-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.recipe-left, .recipe-video {
+  flex: 1;
+  min-width: 300px;
+}
+
+.recipe-video iframe {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.description {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+ul li, ol li {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.recipe-meta p {
+  font-weight: 600;
+  color: #444;
+}
+
+.print-btn {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.print-btn:hover {
+  background: #1e8449;
+}
+
+/* Share */
+.share-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.share-buttons a {
+  font-size: 1.6rem;
+  color: #27ae60;
+}
+
+.share-buttons a:hover {
+  color: #1e8449;
+}
+
+/* =======================
+   About Page
+========================= */
+.about-main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.about-box {
+  background: #fff;
+  padding: 2rem;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.about-box h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+/* =======================
+   Equipment Page
+========================= */
+.equipment-page {
+  padding: 2rem 0;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.equipment-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.equipment-item:hover {
+  transform: translateY(-5px);
+}
+
+.equipment-image {
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.btn-buy {
+  background: #ff5c00;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn-buy:hover {
+  background: #e04e00;
+}
+
+/* =======================
+   Footer
+========================= */
+.main-footer {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  color: #00b894;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+}
+
+.footer-column ul li a:hover {
+  color: #00b894;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* =======================
+   Print Styles
+========================= */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  header, footer, .print-btn, .share-buttons, iframe {
+    display: none !important;
+  }
+
+  main.container {
+    padding: 0;
+  }
+
+  .recipe-layout {
+    display: block;
+  }
+}
