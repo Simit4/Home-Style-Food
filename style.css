@@ -144,9 +144,11 @@ h1, h2, h3 {
 .btn-primary {
   background-color: #27ae60;
   color: #fff;
-  padding: 0.8rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 5px;
+  margin-top: 0.5rem;
   transition: background 0.3s;
+  
 }
 
 .btn-primary:hover {
