@@ -81,13 +81,13 @@ function renderRecipe(recipe) {
   document.getElementById("facts").textContent = recipe.facts || "N/A";
 
   // Video
-function convertToEmbedUrl(url) {
-  if (!url) return '';
-  const videoIdMatch = url.match(/v=([a-zA-Z0-9_-]+)/);
-  if (videoIdMatch && videoIdMatch[1]) {
-    return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+  const video = document.getElementById("recipe-video");
+  if (recipe.video) {
+    video.src = recipe.video;
+    video.style.display = "block";
+  } else {
+    video.style.display = "none";
   }
-  return '';
 }
 
 // Inside renderRecipe or fetchAndRenderRecipe
