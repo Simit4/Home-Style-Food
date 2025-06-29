@@ -40,6 +40,7 @@ function renderRecipes(recipes) {
         <a href="recipe.html?slug=${recipe.slug}">
           <h3>${recipe.title}</h3>
           <p>${recipe.description || ''}</p>
+              <a href="recipe.html?slug=${recipe.slug}" class="btn-primary">View Recipe</a>
         </a>
       `;
 
