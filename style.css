@@ -276,6 +276,26 @@ ul li, ol li {
 
 
 
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.tag-badge {
+  background-color: #27ae60;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+
+
+
 /* =======================
    About Page
 ========================= */
