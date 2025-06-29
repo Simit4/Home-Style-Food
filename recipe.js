@@ -72,15 +72,14 @@ function renderRecipe(recipe) {
   }
 
   // Tags / Cuisine / Category
-  document.getElementById('tags').innerHTML = `
-    <strong>Tags:</strong> ${recipe.tags?.join(', ') || 'N/A'}<br>
-    <strong>Cuisine:</strong> ${recipe.cuisine?.join(', ') || 'N/A'}<br>
-    <strong>Category:</strong> ${recipe.category?.join(', ') || 'N/A'}
-  `;
+document.getElementById('tags').textContent = recipe.tags?.join(', ') || 'Not available';
+document.getElementById('cuisine').textContent = recipe.cuisine?.join(', ') || 'Not available';
+document.getElementById('category').textContent = recipe.category?.join(', ') || 'Not available';
+  
 
   // Notes & Facts
-  document.getElementById('notes').innerText = recipe.notes || 'N/A';
-  document.getElementById('facts').innerText = recipe.facts || 'N/A';
+document.getElementById('notes').textContent = recipe.notes || 'No additional notes available.';
+document.getElementById('facts').textContent = recipe.facts || 'No fun facts found.';
 
   // Video
   const embedUrl = convertToEmbedUrl(recipe.video_url);
