@@ -1,59 +1,64 @@
-// scripts.js
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const SUPABASE_URL = 'https://ozdwocrbrojtyogolqxn.supabase.co'; // your Supabase URL
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // your anon key
+const supabaseUrl = 'https://ozdwocrbrojtyogolqxn.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // Replace with your actual anon/public key
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-const recipesContainer = document.getElementById('recipes-container');
-
-async function loadAllRecipes() {
-  const { data, error } = await supabase
-    .from('recipe_db')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    recipesContainer.innerHTML = `<p>Error loading recipes.</p>`;
-    console.error(error);
-    return;
-  }
-
-  if (!data.length) {
-    recipesContainer.innerHTML = `<p>No recipes found.</p>`;
-    return;
-  }
-
-  recipesContainer.innerHTML = data
-    .map(recipe => `
-      <div class="recipe-card">
-        <h3>${recipe.title}</h3>
-        <iframe src="${recipe.video_url}" title="${recipe.title}" frameborder="0" allowfullscreen></iframe>
-        <p>${recipe.description || ''}</p>
-        <a href="recipe.html?slug=${recipe.slug}" class="btn-primary">View Recipe</a>
-      </div>
-    `)
-    .join('');
+function convertToEmbedUrl(url) {
+  if (!url) return '';
+  const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : '';
 }
 
-loadAllRecipes();
+async function fetchRecipes() {
+  const { data: recipes, error } = await supabase.from('recipe_db').select('*');
 
+  if (error) {
+    console.error('Error fetching recipes:', error.message);
+    return;
+  }
 
-const searchInput = document.getElementById('search-input');
+  renderRecipes(recipes);
+}
 
-searchInput.addEventListener('input', function () {
-  const searchTerm = this.value.toLowerCase();
-  const recipeCards = document.querySelectorAll('.recipe-card');
+function renderRecipes(recipes) {
+  const container = document.getElementById('recipes-container');
+  const searchInput = document.getElementById('search-input');
 
-  recipeCards.forEach(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+  function displayFiltered(filteredRecipes) {
+    container.innerHTML = '';
+    filteredRecipes.forEach(recipe => {
+      const card = document.createElement('div');
+      card.classList.add('recipe-card');
+
+      const embedUrl = convertToEmbedUrl(recipe.video_url);
+
+      card.innerHTML = `
+        <div class="video-wrapper">
+          ${embedUrl ? `<iframe src="${embedUrl}" allowfullscreen></iframe>` : ''}
+        </div>
+        <a href="recipe.html?slug=${recipe.slug}">
+          <h3>${recipe.title}</h3>
+          <p>${recipe.description || ''}</p>
+        </a>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  // Initial display
+  displayFiltered(recipes);
+
+  // Live search
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = recipes.filter(r =>
+      r.title.toLowerCase().includes(query) ||
+      r.description?.toLowerCase().includes(query)
+    );
+    displayFiltered(filtered);
   });
-});
+}
 
-
-
-
-
-
+fetchRecipes();
