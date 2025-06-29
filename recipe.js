@@ -6,99 +6,65 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+// Get slug from URL
+const params = new URLSearchParams(window.location.search);
+const slug = params.get('slug');
 
-// Get recipe slug from URL query param ?slug=
-function getSlug() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get('slug');
-}
-
-async function fetchRecipe(slug) {
+// Load recipe
+async function loadRecipe() {
   const { data, error } = await supabase
     .from('recipe_db')
     .select('*')
     .eq('slug', slug)
     .single();
 
-  if (error) {
-    console.error('Error fetching recipe:', error);
-    document.getElementById('recipe-title').textContent = 'Recipe not found.';
-    return null;
-  }
-
-  return data;
-}
-
-function renderList(containerId, items, ordered = false) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = '';
-  if (!items || items.length === 0) return;
-
-  items.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-function renderNutrition(nutritionData) {
-  const nutritionEl = document.getElementById('nutrition');
-  if (!nutritionData) {
-    nutritionEl.textContent = 'Nutritional info not available';
+  if (error || !data) {
+    document.getElementById('recipe-title').textContent = 'Recipe not found!';
     return;
   }
 
-  let nutritionObj;
-
-  try {
-    nutritionObj = typeof nutritionData === 'string' ? JSON.parse(nutritionData) : nutritionData;
-  } catch (err) {
-    console.error('Error parsing nutritional info JSON:', err);
-    nutritionEl.textContent = 'Nutritional info not available';
-    return;
-  }
-
-  const nutritionText = Object.entries(nutritionObj)
-    .map(([key, val]) => `${capitalizeFirstLetter(key)}: ${val}`)
-    .join(', ');
-
-  nutritionEl.textContent = nutritionText;
+  renderRecipe(data);
 }
 
-function renderTags(tags) {
-  const tagsEl = document.getElementById('tags');
-  if (!tags || tags.length === 0) {
-    tagsEl.textContent = 'N/A';
-    return;
-  }
-  if (typeof tags === 'string') {
-    tagsEl.textContent = tags;
-  } else {
-    tagsEl.textContent = tags.join(', ');
-  }
-}
-
+// Render recipe details
 function renderRecipe(recipe) {
-  document.getElementById('recipe-title').textContent = recipe.title || 'No title';
-  document.getElementById('recipe-description').textContent = recipe.description || '';
-
+  document.getElementById('recipe-title').textContent = recipe.title;
+  document.getElementById('recipe-description').textContent = recipe.description;
   document.getElementById('prep-time').textContent = recipe.prep_time || 'N/A';
   document.getElementById('cook-time').textContent = recipe.cook_time || 'N/A';
   document.getElementById('servings').textContent = recipe.servings || 'N/A';
 
-  renderList('recipe-ingredients', recipe.ingredients);
-  renderList('recipe-method', recipe.method, true);
+  // Ingredients
+  const ingredientsList = document.getElementById('recipe-ingredients');
+  ingredientsList.innerHTML = '';
+  (recipe.ingredients || []).forEach(ingredient => {
+    const li = document.createElement('li');
+    li.textContent = ingredient;
+    ingredientsList.appendChild(li);
+  });
 
+  // Method
+  const methodList = document.getElementById('recipe-method');
+  methodList.innerHTML = '';
+  (recipe.method || []).forEach(step => {
+    const li = document.createElement('li');
+    li.textContent = step;
+    methodList.appendChild(li);
+  });
+
+  // Nutrition
   renderNutrition(recipe.nutritional_info);
-  renderTags(recipe.tags);
 
+  // Tags, cuisine, category
+  renderTags(recipe.tags);
+  renderCuisine(recipe.cuisine);
+  renderCategory(recipe.category);
+
+  // Notes & Facts
   document.getElementById('notes').textContent = recipe.notes || 'N/A';
   document.getElementById('facts').textContent = recipe.facts || 'N/A';
 
-  // Video iframe src
+  // Video
   const videoEl = document.getElementById('recipe-video');
   if (recipe.video_url) {
     videoEl.src = recipe.video_url;
@@ -107,17 +73,56 @@ function renderRecipe(recipe) {
   }
 }
 
-async function main() {
-  const slug = getSlug();
-  if (!slug) {
-    document.getElementById('recipe-title').textContent = 'No recipe specified.';
+// Render nutritional info
+function renderNutrition(nutritionData) {
+  const nutritionEl = document.getElementById('nutrition');
+  if (!nutritionData || typeof nutritionData !== 'object') {
+    nutritionEl.textContent = 'N/A';
     return;
   }
 
-  const recipe = await fetchRecipe(slug);
-  if (recipe) {
-    renderRecipe(recipe);
-  }
+  const entries = Object.entries(nutritionData)
+    .map(([key, value]) => `${capitalize(key)}: ${value}`)
+    .join(', ');
+  nutritionEl.textContent = entries;
 }
 
-main();
+// Render tags
+function renderTags(tags) {
+  const tagsEl = document.getElementById('tags');
+  tagsEl.innerHTML = '';
+
+  if (!tags || tags.length === 0) {
+    tagsEl.textContent = 'N/A';
+    return;
+  }
+
+  if (typeof tags === 'string') {
+    tags = tags.split(',').map(t => t.trim());
+  }
+
+  tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag-badge';
+    span.textContent = tag;
+    tagsEl.appendChild(span);
+  });
+}
+
+// Cuisine & category
+function renderCuisine(cuisine) {
+  const el = document.getElementById('cuisine');
+  el.textContent = cuisine || 'N/A';
+}
+
+function renderCategory(category) {
+  const el = document.getElementById('category');
+  el.textContent = category || 'N/A';
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Load recipe on page load
+loadRecipe();
