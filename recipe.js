@@ -1,39 +1,22 @@
 // recipe.js
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const SUPABASE_URL = 'https://ozdwocrbrojtyogolqxn.supabase.co'; // your Supabase URL
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // replace with your actual anon key
-
-
+const SUPABASE_URL = 'https://your-supabase-url.supabase.co'; // Replace with your Supabase URL
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // Replace with your Supabase anon key
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const urlParams = new URLSearchParams(window.location.search);
-const slug = urlParams.get('slug');
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-const titleEl = document.getElementById('recipe-title');
-const descEl = document.getElementById('recipe-description');
-const ingredientsList = document.getElementById('recipe-ingredients');
-const methodList = document.getElementById('recipe-method');
-const videoFrame = document.getElementById('recipe-video');
-const prepTimeEl = document.getElementById('prep-time');
-const cookTimeEl = document.getElementById('cook-time');
-const servingsEl = document.getElementById('servings');
-const nutritionEl = document.getElementById('nutrition');
-const tagsEl = document.getElementById('tags');
-const notesEl = document.getElementById('notes');
-const factsEl = document.getElementById('facts');
+// Get recipe slug from URL query param ?slug=
+function getSlug() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('slug');
+}
 
-const shareFb = document.getElementById('share-fb');
-const shareX = document.getElementById('share-x');
-const shareWhatsapp = document.getElementById('share-whatsapp');
-
-async function loadRecipe() {
-  if (!slug) {
-    titleEl.textContent = 'No recipe specified.';
-    return;
-  }
-
+async function fetchRecipe(slug) {
   const { data, error } = await supabase
     .from('recipe_db')
     .select('*')
@@ -41,68 +24,100 @@ async function loadRecipe() {
     .single();
 
   if (error) {
-    titleEl.textContent = 'Recipe not found.';
-    console.error(error);
+    console.error('Error fetching recipe:', error);
+    document.getElementById('recipe-title').textContent = 'Recipe not found.';
+    return null;
+  }
+
+  return data;
+}
+
+function renderList(containerId, items, ordered = false) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  if (!items || items.length === 0) return;
+
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+function renderNutrition(nutritionData) {
+  const nutritionEl = document.getElementById('nutrition');
+  if (!nutritionData) {
+    nutritionEl.textContent = 'Nutritional info not available';
     return;
   }
 
-  // Title & description
-  titleEl.textContent = data.title;
-  descEl.textContent = data.description || '';
+  let nutritionObj;
 
-  // Prep, cook time, servings
-  prepTimeEl.textContent = data.prep_time || 'N/A';
-  cookTimeEl.textContent = data.cook_time || 'N/A';
-  servingsEl.textContent = data.servings || 'N/A';
-
-  // Ingredients
-  ingredientsList.innerHTML = '';
-  if (Array.isArray(data.ingredients)) {
-    data.ingredients.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      ingredientsList.appendChild(li);
-    });
+  try {
+    nutritionObj = typeof nutritionData === 'string' ? JSON.parse(nutritionData) : nutritionData;
+  } catch (err) {
+    console.error('Error parsing nutritional info JSON:', err);
+    nutritionEl.textContent = 'Nutritional info not available';
+    return;
   }
 
-  // Method
-  methodList.innerHTML = '';
-  if (Array.isArray(data.method)) {
-    data.method.forEach(step => {
-      const li = document.createElement('li');
-      li.textContent = step;
-      methodList.appendChild(li);
-    });
-  }
+  const nutritionText = Object.entries(nutritionObj)
+    .map(([key, val]) => `${capitalizeFirstLetter(key)}: ${val}`)
+    .join(', ');
 
-  // Nutrition info
-  nutritionEl.textContent = data.nutritional_info || 'Not available';
-
-  // Tags / Category / Cuisine
-  if (Array.isArray(data.tags)) {
-    tagsEl.textContent = data.tags.join(', ');
-  } else {
-    tagsEl.textContent = data.tags || 'N/A';
-  }
-
-  // Notes / Tips
-  notesEl.textContent = data.notes || 'N/A';
-
-  // Facts
-  factsEl.textContent = data.facts || 'N/A';
-
-  // Video
-  videoFrame.src = data.video_url || '';
-  videoFrame.title = data.title;
-
-  // Setup share buttons
-  const pageUrl = encodeURIComponent(window.location.href);
-  const pageTitle = encodeURIComponent(data.title);
-
-  shareFb.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-  shareX.href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-  shareWhatsapp.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+  nutritionEl.textContent = nutritionText;
 }
 
-loadRecipe();
+function renderTags(tags) {
+  const tagsEl = document.getElementById('tags');
+  if (!tags || tags.length === 0) {
+    tagsEl.textContent = 'N/A';
+    return;
+  }
+  if (typeof tags === 'string') {
+    tagsEl.textContent = tags;
+  } else {
+    tagsEl.textContent = tags.join(', ');
+  }
+}
 
+function renderRecipe(recipe) {
+  document.getElementById('recipe-title').textContent = recipe.title || 'No title';
+  document.getElementById('recipe-description').textContent = recipe.description || '';
+
+  document.getElementById('prep-time').textContent = recipe.prep_time || 'N/A';
+  document.getElementById('cook-time').textContent = recipe.cook_time || 'N/A';
+  document.getElementById('servings').textContent = recipe.servings || 'N/A';
+
+  renderList('recipe-ingredients', recipe.ingredients);
+  renderList('recipe-method', recipe.method, true);
+
+  renderNutrition(recipe.nutritional_info);
+  renderTags(recipe.tags);
+
+  document.getElementById('notes').textContent = recipe.notes || 'N/A';
+  document.getElementById('facts').textContent = recipe.facts || 'N/A';
+
+  // Video iframe src
+  const videoEl = document.getElementById('recipe-video');
+  if (recipe.video_url) {
+    videoEl.src = recipe.video_url;
+  } else {
+    videoEl.style.display = 'none';
+  }
+}
+
+async function main() {
+  const slug = getSlug();
+  if (!slug) {
+    document.getElementById('recipe-title').textContent = 'No recipe specified.';
+    return;
+  }
+
+  const recipe = await fetchRecipe(slug);
+  if (recipe) {
+    renderRecipe(recipe);
+  }
+}
+
+main();
