@@ -44,58 +44,57 @@
 </header>
 
 
-<main class="container recipe-page">
-  <div class="recipe-layout">
-    <div class="recipe-left">
-      <h2 id="recipe-title">Loading...</h2>
-      <p id="recipe-description" class="description"></p>
+ <!-- Recipe Content -->
+  <main class="container recipe-page">
+    <div class="recipe-layout">
+      <div class="recipe-left">
+        <h2 id="recipe-title">Loading...</h2>
+        <p id="recipe-description" class="description"></p>
 
-      <div class="recipe-meta">
-        <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
-        <p><strong>Cook Time:</strong> <span id="cook-time"></span></p>
-        <p><strong>Servings:</strong> <span id="servings"></span></p>
+        <div class="recipe-meta">
+          <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
+          <p><strong>Cook Time:</strong> <span id="cook-time"></span></p>
+          <p><strong>Servings:</strong> <span id="servings"></span></p>
+        </div>
+
+        <div class="recipe-section">
+          <h3>Ingredients</h3>
+          <ul id="recipe-ingredients"></ul>
+        </div>
+
+        <div class="recipe-section">
+          <h3>Method</h3>
+          <ol id="recipe-method"></ol>
+        </div>
+
+        <div class="recipe-section" id="nutrition-section">
+          <h3>Nutritional Info</h3>
+          <p id="nutrition"></p>
+        </div>
+
+        <div class="recipe-section">
+          <h3>Tags / Cuisine / Category</h3>
+          <p id="tags"></p>
+        </div>
+
+        <div class="recipe-section" id="notes-section">
+          <h3>Notes / Tips</h3>
+          <p id="notes"></p>
+        </div>
+
+        <div class="recipe-section" id="facts-section">
+          <h3>Interesting Facts</h3>
+          <p id="facts"></p>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print Recipe</button>
       </div>
 
-      <div class="recipe-section">
-        <h3>Ingredients</h3>
-        <ul id="recipe-ingredients"></ul>
+      <div class="recipe-video">
+        <iframe id="recipe-video" src="" allowfullscreen title="Recipe Video"></iframe>
       </div>
-
-      <div class="recipe-section">
-        <h3>Method</h3>
-        <ol id="recipe-method"></ol>
-      </div>
-
-      <div class="recipe-section" id="nutrition-section">
-        <h3>Nutritional Info</h3>
-        <p id="nutrition"></p>
-      </div>
-
-      <div class="recipe-section">
-        <h3>Tags / Cuisine / Category</h3>
-        <p id="tags"></p>
-      </div>
-
-      <div class="recipe-section" id="notes-section">
-        <h3>Notes / Tips</h3>
-        <p id="notes"></p>
-      </div>
-
-      <div class="recipe-section" id="facts-section">
-        <h3>Interesting Facts</h3>
-        <p id="facts"></p>
-      </div>
-
-  
-
-      <button class="print-btn" onclick="window.print()">🖨️ Print Recipe</button>
     </div>
-
-    <div class="recipe-video">
-      <iframe id="recipe-video" src="" allowfullscreen title="Recipe Video"></iframe>
-    </div>
-  </div>
-</main>
+  </main>
 
 
 
