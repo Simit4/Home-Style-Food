@@ -142,12 +142,15 @@ h1, h2, h3 {
 }
 
 .btn-primary {
+ display: inline-block;
   background-color: #27ae60;
   color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  margin-top: 1rem;
-  transition: background 0.3s;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  text-align: center;
   
 }
 
