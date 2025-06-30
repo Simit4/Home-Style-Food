@@ -310,7 +310,7 @@ ul li, ol li {
 
 #search-input {
   width: 100%;
-  max-width: 400px;
+  max-width: 250px;
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border: 2px solid #ccc;
