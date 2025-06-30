@@ -314,7 +314,7 @@ ul li, ol li {
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border: 2px solid #ccc;
-  border-radius: 15px;
+  border-radius: 12px;
   outline: none;
   transition: 0.3s ease;
   background-color: #fff;
