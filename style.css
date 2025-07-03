@@ -252,18 +252,18 @@ h1, h2, h3 {
 
 .btn-secondary {
   display: inline-block;
-  background-color: #27ae60;
+  padding: 12px 24px;
+  background-color: #e63946;
   color: #fff;
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-  text-align: center;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
 .btn-secondary:hover {
-  background-color: #219150;
+ background-color: #c92a3b;
 }
 
 
