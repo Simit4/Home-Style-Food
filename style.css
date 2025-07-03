@@ -162,7 +162,7 @@ h1, h2, h3 {
 .btn-primary {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #e63946;
+  background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
   border: none;
@@ -172,7 +172,7 @@ h1, h2, h3 {
 }
 
 .btn-primary:hover {
-  background-color: #c92a3b;
+  background-color: #1e8449;
 }
 
 /* Responsive Tweaks */
@@ -253,7 +253,7 @@ h1, h2, h3 {
 .btn-secondary {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #e63946;
+  background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
   border: none;
@@ -263,7 +263,7 @@ h1, h2, h3 {
 }
 
 .btn-secondary:hover {
- background-color: #c92a3b;
+ background-color: #1e8449;
 }
 
 
