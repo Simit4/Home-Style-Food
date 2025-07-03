@@ -446,7 +446,7 @@ ul li, ol li {
 }
 
 .btn-buy {
-  background: #ff5c00;
+  background: #27ae60;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -456,7 +456,7 @@ ul li, ol li {
 }
 
 .btn-buy:hover {
-  background: #e04e00;
+  background: #1e8449;
 }
 
 /* =======================
