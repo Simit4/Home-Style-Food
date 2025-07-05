@@ -223,17 +223,54 @@ h1, h2, h3 {
 }
 
 .recipe-card {
-  background-color: #fff;
-  border: 1px solid #eee;
+  background: #fff;
   border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+  text-align: center;
+  transition: transform 0.2s;
 }
 
 .recipe-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
+
+.thumbnail-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.recipe-thumb {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.view-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 
 .video-wrapper {
   position: relative;
