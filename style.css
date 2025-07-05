@@ -161,7 +161,7 @@ h1, h2, h3 {
 
 .btn-primary {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 4px 6px;
   background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
@@ -289,7 +289,7 @@ h1, h2, h3 {
 
 .btn-secondary {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 4px 6px;
   background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
@@ -353,8 +353,8 @@ ul li, ol li {
 }
 
 .print-btn {
-   display: inline-block;
-  padding: 12px 24px;
+ display: inline-block;
+  padding: 4px 6px;
   background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
@@ -508,7 +508,7 @@ ul li, ol li {
 
 .btn-buy {
   display: inline-block;
-  padding: 2px 4px;
+  padding: 4px 6px;
   background-color: #27ae60;
   color: #fff;
   font-size: 1rem;
