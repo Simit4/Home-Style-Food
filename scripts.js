@@ -30,9 +30,9 @@ function renderRecipes(recipes) {
     card.className = 'recipe-card';
     card.innerHTML = `
       <div class="thumbnail-wrapper">
-        <img src="${thumb}" alt="${recipe.name}" class="recipe-thumb" />
+        <img src="${thumb}" alt="${recipe.title}" class="recipe-thumb" />
       </div>
-      <h3>${recipe.name}</h3>
+      <h3>${recipe.title}</h3>
       <p>${recipe.description}</p>
       <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
     `;
