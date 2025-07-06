@@ -29,16 +29,15 @@ async function fetchEquipment() {
   // Render each equipment card
 equipmentContainer.innerHTML += `
   <div class="equipment-item">
-    <img class="equipment-image" src="${item.image_url}" alt="${item.title}" />
+    <img class="equipment-image" src="${item.image_url}" alt="${item.name}" />
     <h3 class="equipment-title">${item.name}</h3>
     <p class="equipment-description">${item.description || ''}</p>
     <a class="btn-buy" href="${item.affiliate_link}" target="_blank" rel="noopener noreferrer">
       Buy Now
     </a>
   </div>
-`;
-
-    `;
+`
+   `;
   });
 }
 
