@@ -7,26 +7,24 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
-// Fetch and render equipment
-async function fetchEquipment() {
-  const equipmentContainer = document.getElementById('equipment-container');
+const equipmentContainer = document.getElementById('equipment-container');
 
-  const { data: equipment, error } = await supabase
+async function fetchEquipment() {
+  const { data, error } = await supabase
     .from('equipment_db')
     .select('*');
 
   if (error) {
-    equipmentContainer.innerHTML = `<p>Error loading equipment.</p>`;
-    console.error(error);
+    console.error('Error loading equipment:', error.message);
+    equipmentContainer.innerHTML = '<p>Error loading equipment.</p>';
     return;
   }
 
-  if (!equipment || equipment.length === 0) {
-    equipmentContainer.innerHTML = `<p>No equipment found.</p>`;
+  if (!data.length) {
+    equipmentContainer.innerHTML = '<p>No equipment items found.</p>';
     return;
   }
 
-  // Render each equipment card
   equipmentContainer.innerHTML = ''; // Clear container
 
   data.forEach(item => {
