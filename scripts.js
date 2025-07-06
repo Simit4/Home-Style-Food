@@ -21,26 +21,23 @@ async function fetchRecipes() {
     return;
   }
 
-  const container = document.getElementById('recipes-container');
-  container.innerHTML = '';
+ const featuredContainer = document.getElementById('featured-recipes');
+  featuredContainer.innerHTML = '';
 
-  recipes.forEach(recipe => {
-    const thumbUrl = recipe.thumbnail_url || getYouTubeThumbnail(recipe.video_url);
-
-    const card = document.createElement('div');
-    card.className = 'recipe-card';
-
-    card.innerHTML = `
-      <div class="thumbnail-wrapper">
-        <img src="${thumbUrl}" alt="${recipe.title}" class="recipe-thumb">
+  data.forEach(recipe => {
+    const thumbUrl = recipe.thumbnail || 'default.jpg';
+    const card = `
+      <div class="recipe-card">
+        <div class="thumbnail-wrapper">
+          <img src="${thumbUrl}" alt="${recipe.title}" class="recipe-thumb">
+        </div>
+        <h3>${recipe.title}</h3>
+        <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
       </div>
-      <h3>${recipe.title}</h3>
-      <p>${recipe.description}</p>
-      <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
     `;
-
-    container.appendChild(card);
+    featuredContainer.innerHTML += card;
   });
+
 }
 
 // Optional: Search filter
