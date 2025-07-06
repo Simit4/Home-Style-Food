@@ -31,6 +31,15 @@ async function fetchAndRenderRecipe() {
     return;
   }
 
+// ✅ Increment views
+if (recipe && recipe.id) {
+  await supabase
+    .from('recipe_db')
+    .update({ views: (recipe.views || 0) + 1 })
+    .eq('id', recipe.id);
+}
+
+  
   renderRecipe(recipe);
 }
 
