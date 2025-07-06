@@ -124,6 +124,8 @@ h1, h2, h3 {
   background-color: #1e8449;
 }
 
+
+
 /* Recipes Grid Section */
 .recipes-header {
   text-align: center;
@@ -166,9 +168,7 @@ h1, h2, h3 {
   border-bottom: 1px solid #eee;
 }
 
-.recipe-content {
-  padding: 1rem;
-}
+
 
 .recipe-content h3 {
   font-size: 1.25rem;
