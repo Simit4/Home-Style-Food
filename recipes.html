@@ -43,19 +43,15 @@
 
 
 
-<main class="container recipes-section">
-  <h2>All Recipes</h2>
+<main class="container">
+  <section class="recipes-header">
+    <h2>All Recipes</h2>
+    <input type="text" id="search-input" placeholder="Search recipes 🔍" />
+  </section>
 
-<!-- Search bar -->
-<div class="search-container">
-  <input type="text" id="search-input" placeholder="Search recipes 🔍" />
-</div>
-
-<br>
-
-    <div id="recipes-container" class="recipes-grid">
-    <!-- Recipes loaded by JavaScript -->
-  </div>
+  <section id="recipes-container" class="recipes-grid">
+    <!-- JS will inject recipe cards here -->
+  </section>
 </main>
 
 <footer class="main-footer">
