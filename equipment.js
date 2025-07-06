@@ -4,44 +4,46 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 // Supabase config
 const SUPABASE_URL = 'https://ozdwocrbrojtyogolqxn.supabase.co'; // Replace with your Supabase URL
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96ZHdvY3Jicm9qdHlvZ29scXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1NzE5MzMsImV4cCI6MjA2NjE0NzkzM30.-MAiUtrdza-T2q8POxY-ZcZuZr5QYzFYq5yd-bVYzRQ'; // Replace with your Supabase anon key
-
-
-
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const equipmentList = document.getElementById('equipment-list');
 
-async function loadEquipment() {
-  const { data, error } = await supabase.from('equipment_db').select('*'); // Make sure your table name is 'equipment'
 
-  if (error) {
-    console.error('Error fetching equipment:', error);
-    equipmentList.innerHTML = '<p>Failed to load equipment. Please try again later.</p>';
-    return;
+// Default fallback image (in case an item has no image)
+const fallbackImage = 'https://via.placeholder.com/300x200.png?text=No+Image';
+
+async function fetchEquipment() {
+  try {
+    const { data: equipment, error } = await supabase
+      .from('equipment_db')
+      .select('*')
+      .order('title', { ascending: true });
+
+    if (error || !equipment) throw error;
+    renderEquipment(equipment);
+  } catch (err) {
+    console.error('Error loading equipment:', err.message || err);
+    document.getElementById('equipment-container').innerHTML = `<p style="color:red;">Unable to load equipment. Please try again later.</p>`;
   }
+}
 
-  if (!data || data.length === 0) {
-    equipmentList.innerHTML = '<p>No equipment found.</p>';
-    return;
-  }
+function renderEquipment(items) {
+  const container = document.getElementById('equipment-container');
+  container.innerHTML = '';
 
-  equipmentList.innerHTML = ''; // Clear container
+  items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'equipment-item';
 
-  data.forEach(item => {
-    // Create equipment card
-    const div = document.createElement('div');
-    div.className = 'equipment-item';
-
-    div.innerHTML = `
-      <img src="${item.image_url}" alt="${item.name}" class="equipment-image" />
-      <h3 class="equipment-name">${item.name}</h3>
-      <p class="equipment-description">${item.description}</p>
-      <a href="${item.affiliate_link}" target="_blank" rel="noopener noreferrer" class="btn-buy">Buy on Amazon</a>
+    card.innerHTML = `
+      <img src="${item.image_url || fallbackImage}" alt="${item.title}" class="equipment-image" />
+      <h3 class="equipment-title">${item.title}</h3>
+      <a href="${item.link}" class="btn-buy" target="_blank" rel="noopener noreferrer">
+        Buy on Amazon
+      </a>
     `;
 
-    equipmentList.appendChild(div);
+    container.appendChild(card);
   });
 }
 
-loadEquipment();
-
+fetchEquipment();
