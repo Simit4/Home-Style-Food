@@ -33,11 +33,11 @@ async function fetchEquipment() {
       <div class="equipment-item">
         <img class="equipment-image" src="${item.image_url}" alt="${item.title}" />
         <h3>${item.title}</h3>
+        <p class="equipment-description">${item.description || ''}</p>
         <a class="btn-buy" href="${item.link}" target="_blank" rel="noopener">Buy Now</a>
       </div>
     `;
   });
 }
 
-// Start fetching on page load
 fetchEquipment();
