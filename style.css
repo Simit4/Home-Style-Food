@@ -447,18 +447,20 @@ ul li, ol li {
 
 .btn-buy {
   display: inline-block;
-  padding: 4px 6px;
+  margin-top: 10px;
   background-color: #27ae60;
   color: #fff;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 .btn-buy:hover {
-  background: #1e8449;
+  background: linear-gradient(135deg, #2ecc71, #239b56);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 
