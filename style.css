@@ -148,8 +148,9 @@ h1, h2, h3 {
 }
 
 .btn-hero:hover {
-  background-color: #1e8449;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2ecc71, #239b56);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 
