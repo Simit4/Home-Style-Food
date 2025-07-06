@@ -32,7 +32,7 @@ equipmentContainer.innerHTML += `
     <img class="equipment-image" src="${item.image_url}" alt="${item.title}" />
     <h3 class="equipment-title">${item.name}</h3>
     <p class="equipment-description">${item.description || ''}</p>
-    <a class="btn-buy" href="${item.link}" target="_blank" rel="noopener noreferrer">
+    <a class="btn-buy" href="${item.affiliate_link}" target="_blank" rel="noopener noreferrer">
       Buy Now
     </a>
   </div>
