@@ -88,7 +88,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-  background: linear-gradient(to right, #fdfcfb, #e2d1c3); /* soft elegant foodie tone */
+  background: linear-gradient(to right, #fdfcfb, #f2e8dc); /* best warm neutral food tone */
   background-size: cover;
   background-position: center;
   min-height: 75vh;
