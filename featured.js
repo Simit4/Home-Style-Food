@@ -5,45 +5,49 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
-async function loadFeaturedRecipes() {
-  const { data: recipes, error } = await supabase
+/ Fetch top 3 most viewed recipes
+async function fetchFeaturedRecipes() {
+  const { data, error } = await supabase
     .from('recipe_db')
     .select('*')
-    .limit(3)
-     .order('views', { ascending: false });
+    .order('views', { ascending: false })
+    .limit(3);
 
-  if (error) return console.error(error);
+  if (error) {
+    console.error('Error fetching featured recipes:', error);
+    return;
+  }
 
-  const container = document.getElementById('featured-recipes-container');
+  renderFeaturedRecipes(data);
+}
+
+function renderFeaturedRecipes(recipes) {
+  const container = document.getElementById('featured-container');
   container.innerHTML = '';
 
   recipes.forEach(recipe => {
+    const thumb = getThumbnail(recipe.video_url);
+
     const card = document.createElement('div');
-    card.classList.add('recipe-card');
-
-    const thumb = recipe.thumbnail_url || 'fallback.jpg';
-    const videoId = recipe.video_url?.match(/v=([^&]+)/)?.[1];
-    const imgSrc = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : thumb;
-
+    card.className = 'recipe-card';
     card.innerHTML = `
-      <img src="${imgSrc}" class="recipe-thumb" alt="${recipe.title}">
-      <div class="recipe-content">
-        <h3>${recipe.title}</h3>
-        <p>${recipe.description}</p>
-        <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
+      <div class="thumbnail-wrapper">
+        <img src="${thumb}" alt="${recipe.title}" class="recipe-thumb" />
       </div>
+      <h3>${recipe.title}</h3>
+      <p>${recipe.description}</p>
+      <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
     `;
     container.appendChild(card);
   });
 }
 
-loadFeaturedRecipes();
-
-
-// Increment view count
-if (recipe && recipe.id) {
-  await supabase
-    .from('recipe_db')
-    .update({ views: (recipe.views || 0) + 1 })
-    .eq('id', recipe.id);
+// Convert YouTube link to thumbnail
+function getThumbnail(url) {
+  const match = url?.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+  return match
+    ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
+    : 'assets/default-thumbnail.jpg'; // fallback image
 }
+
+fetchFeaturedRecipes();
