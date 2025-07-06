@@ -33,7 +33,6 @@ async function fetchRecipes() {
     card.innerHTML = `
       <div class="thumbnail-wrapper">
         <img src="${thumbUrl}" alt="${recipe.title}" class="recipe-thumb">
-        ${recipe.video_url ? `<div class="play-icon"><i class="fas fa-play-circle"></i></div>` : ''}
       </div>
       <h3>${recipe.title}</h3>
       <p>${recipe.description}</p>
