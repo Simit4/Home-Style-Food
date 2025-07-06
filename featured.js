@@ -5,7 +5,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
-/ Fetch top 3 most viewed recipes
+// Fetch top 3 most viewed recipes
 async function fetchFeaturedRecipes() {
   const { data, error } = await supabase
     .from('recipe_db')
