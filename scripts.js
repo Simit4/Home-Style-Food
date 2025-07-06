@@ -28,10 +28,10 @@ async function loadAllRecipes() {
   recipesContainer.innerHTML = data
     .map(recipe => `
       <div class="recipe-card">
-        <h3>${recipe.title}</h3>
-        <iframe src="${recipe.video_url}" title="${recipe.title}" frameborder="0" allowfullscreen></iframe>
+        <h3>${recipe.name}</h3>
+        <iframe src="${recipe.video_url}" title="${recipe.name}" frameborder="0" allowfullscreen></iframe>
         <p>${recipe.description || ''}</p>
-        <a href="recipe.html?slug=${recipe.slug}" class="btn-primary">View Recipe</a>
+        <a href="recipe.html?slug=${recipe.slug}" class="view-btn">View Recipe</a>
       </div>
     `)
     .join('');
