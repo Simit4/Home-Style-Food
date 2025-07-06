@@ -120,7 +120,7 @@ h1, h2, h3 {
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -378,4 +378,7 @@ ul li, ol li {
   color: #1e8449;
   font-weight: 600;
 }
+
+
+
 
