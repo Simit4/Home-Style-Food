@@ -88,7 +88,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-  background:linear-gradient(to right, #ff9966, #ff5e62); /* orange to red */
+  background:linear-gradient(to right, #fdfcfb, #e2d1c3); /* off-white to latte */
   padding: 80px 20px;
   text-align: center;
   display: flex;
