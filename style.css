@@ -139,24 +139,6 @@ h1, h2, h3 {
   margin: 2rem auto;
 }
 
-#search-input {
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem auto;
-  padding: 0.75rem 1rem;
-  border: 2px solid #ddd;
-  border-radius: 20px;
-  font-size: 1rem;
-  display: block;
-}
-
-#search-input:hover {
-  background: linear-gradient(135deg, #2ecc71, #239b56);
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -292,12 +274,23 @@ ul li, ol li {
 }
 
 #search-input {
-  padding: 0.5rem 1rem;
-  border: 2px solid #ccc;
-  border-radius: 10px;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
+  margin: 1rem auto;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  font-size: 1rem;
+  display: block;
 }
+
+#search-input:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+
 
 /* Footer */
 .main-footer {
