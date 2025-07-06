@@ -91,12 +91,12 @@ h1, h2, h3 {
   background: linear-gradient(to right, #fdfcfb, #f2e8dc); /* best warm neutral food tone */
   background-size: cover;
   background-position: center;
-  min-height: 75vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 30px 10px;
+  padding: 60px 20px;
   position: relative;
   overflow: hidden;
 }
