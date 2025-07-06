@@ -150,6 +150,13 @@ h1, h2, h3 {
   display: block;
 }
 
+#search-input:hover {
+  background: linear-gradient(135deg, #2ecc71, #239b56);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
