@@ -52,3 +52,9 @@ document.getElementById('search-input')?.addEventListener('input', function () {
 });
 
 fetchRecipes();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchFeaturedRecipes(); // 🚀 Load top 3 most viewed recipes
+});
+
