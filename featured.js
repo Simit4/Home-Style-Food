@@ -5,7 +5,6 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
-// Fetch top 3 most viewed recipes
 async function fetchFeaturedRecipes() {
   const { data, error } = await supabase
     .from('recipe_db')
@@ -14,7 +13,7 @@ async function fetchFeaturedRecipes() {
     .limit(3);
 
   if (error) {
-    console.error('Error fetching featured recipes:', error);
+    console.error('❌ Error fetching featured recipes:', error.message);
     return;
   }
 
@@ -42,12 +41,11 @@ function renderFeaturedRecipes(recipes) {
   });
 }
 
-// Convert YouTube link to thumbnail
 function getThumbnail(url) {
   const match = url?.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
   return match
     ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
-    : 'assets/default-thumbnail.jpg'; // fallback image
+    : 'assets/default-thumbnail.jpg';
 }
 
 fetchFeaturedRecipes();
