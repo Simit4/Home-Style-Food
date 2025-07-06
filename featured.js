@@ -38,3 +38,12 @@ async function loadFeaturedRecipes() {
 }
 
 loadFeaturedRecipes();
+
+
+// Increment view count
+if (recipe && recipe.id) {
+  await supabase
+    .from('recipe_db')
+    .update({ views: (recipe.views || 0) + 1 })
+    .eq('id', recipe.id);
+}
