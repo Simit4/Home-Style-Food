@@ -27,15 +27,17 @@ async function fetchEquipment() {
   }
 
   // Render each equipment card
-  equipmentContainer.innerHTML = '';
-  equipment.forEach(item => {
-    equipmentContainer.innerHTML += `
-      <div class="equipment-item">
-        <img class="equipment-image" src="${item.image_url}" alt="${item.title}" />
-        <h3>${item.title}</h3>
-        <p class="equipment-description">${item.description || ''}</p>
-        <a class="btn-buy" href="${item.link}" target="_blank" rel="noopener">Buy Now</a>
-      </div>
+equipmentContainer.innerHTML += `
+  <div class="equipment-item">
+    <img class="equipment-image" src="${item.image_url}" alt="${item.title}" />
+    <h3 class="equipment-title">${item.title}</h3>
+    <p class="equipment-description">${item.description || ''}</p>
+    <a class="btn-buy" href="${item.link}" target="_blank" rel="noopener noreferrer">
+      Buy Now
+    </a>
+  </div>
+`;
+
     `;
   });
 }
