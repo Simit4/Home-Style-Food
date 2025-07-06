@@ -10,7 +10,7 @@ async function loadFeaturedRecipes() {
     .from('recipe_db')
     .select('*')
     .limit(3)
-    .order('created_at', { ascending: false });
+     .order('views', { ascending: false });
 
   if (error) return console.error(error);
 
