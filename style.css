@@ -383,4 +383,74 @@ ul li, ol li {
 
 
 
+/* Equipment */
+
+
+.equipment-page {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-subtitle {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.equipment-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.equipment-item:hover {
+  transform: translateY(-5px);
+}
+
+.equipment-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.equipment-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.btn-buy {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 6px 12px;
+  background-color: #27ae60;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.btn-buy:hover {
+  background-color: #1e8449;
+}
 
