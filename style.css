@@ -409,6 +409,13 @@ ul li, ol li {
   gap: 2rem;
 }
 
+.equipment-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.5rem;
+  color: #2c3e50;
+}
+
 .equipment-description {
   font-size: 0.95rem;
   color: #555;
