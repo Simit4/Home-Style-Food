@@ -349,7 +349,6 @@ ul li, ol li {
 }
 
 .footer-column ul li a:hover {
-  background: linear-gradient(135deg, #2ecc71, #239b56);
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
