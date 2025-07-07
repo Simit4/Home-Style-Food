@@ -83,9 +83,7 @@ h1, h2, h3 {
 }
 
 .nav-links a:hover::after {
-  background: linear-gradient(135deg, #2ecc71, #239b56);
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+ width: 100%;
 }
 
 /* Hero */
