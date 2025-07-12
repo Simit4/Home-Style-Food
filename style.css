@@ -344,9 +344,7 @@ ul li, ol li {
   padding: 0;
 }
 
-.footer-column ul li a {
-  color: #ccc;
-}
+
 
 .footer-column ul li a:hover {
   transform: scale(1.05);
