@@ -165,29 +165,39 @@ h1, h2, h3, h4, h5 {
 .footer-column .social-icons a {
   font-size: 1.5rem;
   margin-right: 15px;
-  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s;
+  background-color: transparent;
 }
 
+/* Icon hover animation */
 .footer-column .social-icons a:hover {
   transform: scale(1.2);
+  background-color: rgba(255, 255, 255, 0.1); /* soft glow effect */
 }
 
 /* Platform-specific colors */
 .footer-column .social-icons a[href*="youtube"] {
-  color: #FF0000; /* YouTube red */
+  color: #FF0000;
 }
 
 .footer-column .social-icons a[href*="instagram"] {
-  color: #C13584; /* Instagram pink */
+  color: #C13584;
 }
 
 .footer-column .social-icons a[href*="facebook"] {
-  color: #1877F2; /* Facebook blue */
+  color: #1877F2;
 }
 
 .footer-column .social-icons a[href*="tiktok"] {
-  color: #000000; /* TikTok black */
+  color: #000000;
 }
+
 
 
 .footer-bottom{text-align:center; margin-top:2rem; font-size:.85rem; color:#aaa;}
