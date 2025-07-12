@@ -152,7 +152,12 @@ h1, h2, h3, h4, h5 {
 -------------------------------------------------- */
 .main-footer{background:#1c1c1c; color:#fff; padding:2rem 1rem;}
 .footer-container{display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between;}
-.footer-column h4{color:var(--primary);}
+.footer-column h3,
+.footer-column h4 {
+  color: #2e7d32;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
 .footer-column ul{list-style:none; padding:0;}
 .footer-column ul li a{color:#ccc; transition:color .3s;}
 .footer-column ul li a:hover{color:var(--light);}
