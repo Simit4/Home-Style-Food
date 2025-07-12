@@ -185,3 +185,41 @@ h1, h2, h3, h4, h5 {
   .recipe-layout{display:block;}
   .recipe-video iframe{display:none;}
 }
+
+
+/* -------------------------------------------------
+About page
+-------------------------------------------------- */
+.about-section {
+  background-color: var(--section-bg);
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: var(--shadow-sm);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.about-section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+.about-section p {
+  margin-bottom: 1.2rem;
+}
+.about-section strong {
+  color: var(--primary-dark);
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
