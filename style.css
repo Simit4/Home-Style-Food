@@ -147,41 +147,55 @@ h1, h2, h3, h4, h5 {
 .btn-buy{background:var(--primary); color:#fff; padding:.5rem 1rem; border-radius:8px; font-weight:600; display:inline-block; transition:.3s;}
 .btn-buy:hover{background:var(--primary-dark);}
 
+
+
 /* -------------------------------------------------
    Footer
 -------------------------------------------------- */
-.main-footer{background:#1c1c1c; color:#fff; padding:2rem 1rem;}
-.footer-container{display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between;}
+.main-footer {
+  background: #ffffff; /* Match header */
+  color: #333; /* Match header text */
+  padding: 2rem 1rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .footer-column h3,
 .footer-column h4 {
-  color: #2e7d32;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  color: #2e7d32; /* Brand green */
 }
-.footer-column ul{list-style:none; padding:0;}
-.footer-column ul li a{color:#ccc; transition:color .3s;}
-.footer-column ul li a:hover{color:var(--light);}
+
+.footer-column p,
+.footer-column ul li a {
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a:hover {
+  color: #2e7d32;
+  text-decoration: underline;
+}
 
 .footer-column .social-icons a {
   font-size: 1.5rem;
   margin-right: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  transition: transform 0.3s, background-color 0.3s;
-  background-color: transparent;
+  transition: transform 0.3s;
 }
 
-/* Icon hover animation */
-.footer-column .social-icons a:hover {
-  transform: scale(1.2);
-  background-color: rgba(255, 255, 255, 0.1); /* soft glow effect */
-}
-
-/* Platform-specific colors */
+/* Use original platform colors */
 .footer-column .social-icons a[href*="youtube"] {
   color: #FF0000;
 }
@@ -198,12 +212,17 @@ h1, h2, h3, h4, h5 {
   color: #000000;
 }
 
+.footer-column .social-icons a:hover {
+  transform: scale(1.2);
+}
 
-
-.footer-bottom{text-align:center; margin-top:2rem; font-size:.85rem; color:#aaa;}
-
-@media(max-width:768px){
-  .footer-container{flex-direction:column; align-items:flex-start;}
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
 }
 
 /* -------------------------------------------------
