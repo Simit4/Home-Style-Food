@@ -46,61 +46,55 @@
 
  <!-- Recipe Content -->
   <main class="container recipe-page">
-    <div class="recipe-layout">
-      <div class="recipe-left">
-        <h2 id="recipe-title">Loading...</h2>
-        <p id="recipe-description" class="description"></p>
+  <h1 id="recipe-title">Loading...</h1>
+  <p id="recipe-description" class="description"></p>
 
-        <div class="recipe-meta">
-          <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
-          <p><strong>Cook Time:</strong> <span id="cook-time"></span></p>
-          <p><strong>Servings:</strong> <span id="servings"></span></p>
-        </div>
+  <div class="recipe-layout">
+    <div class="recipe-left">
+      <h3>🧂 Ingredients</h3>
+      <ul id="recipe-ingredients"></ul>
 
-        <div class="recipe-section">
-          <h3>Ingredients</h3>
-          <ul id="recipe-ingredients"></ul>
-        </div>
+      <h3>👨‍🍳 Method</h3>
+      <ol id="recipe-method"></ol>
 
-        <div class="recipe-section">
-          <h3>Method</h3>
-          <ol id="recipe-method"></ol>
-        </div>
-
-        <div class="recipe-section" id="nutrition-section">
-          <h3>Nutritional Info</h3>
-          <p id="nutrition"></p>
-        </div>
-
-
-  <div class="recipe-section">
-  <h3>🏷️ Tags / Cuisine / Category</h3>
-  <p><strong>Tags:</strong> <span id="tags"></span></p>
-  <p><strong>Cuisine:</strong> <span id="cuisine"></span></p>
-  <p><strong>Category:</strong> <span id="category"></span></p>
-</div>
-
-<div class="recipe-section" id="notes-section">
-  <h3>📝 Notes / Tips</h3>
-  <p id="notes">No additional notes available.</p>
-</div>
-
-<div class="recipe-section" id="facts-section">
-  <h3>🌟 Interesting Facts</h3>
-  <p id="facts">No fun facts found.</p>
-</div>
-
-<a onclick="window.print()" class="btn-print">
-  <i class="fas fa-print"></i> Print Recipe
-</a>
-        
+      <div class="recipe-meta">
+        <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
+        <p><strong>Cook Time:</strong> <span id="cook-time"></span></p>
+        <p><strong>Servings:</strong> <span id="servings"></span></p>
       </div>
 
-      <div class="recipe-video">
-        <iframe id="recipe-video" src="" allowfullscreen title="Recipe Video"></iframe>
+      <div class="print-btn">
+        <a onclick="window.print()" class="btn-secondary"><i class="fas fa-print"></i> Print Recipe</a>
       </div>
     </div>
-  </main>
+
+    <div class="recipe-video">
+      <div class="video-wrapper">
+        <iframe id="recipe-video" allowfullscreen></iframe>
+      </div>
+
+      <div class="recipe-meta-extra">
+        <h3>📋 Tags</h3>
+        <p id="tags" class="tags-container"></p>
+
+        <h3>🌍 Cuisine</h3>
+        <p id="cuisine"></p>
+
+        <h3>📁 Category</h3>
+        <p id="category"></p>
+
+        <h3>🧠 Notes</h3>
+        <p id="notes"></p>
+
+        <h3>💡 Interesting Facts</h3>
+        <p id="facts"></p>
+
+        <h3>🧪 Nutrition</h3>
+        <div id="nutrition"></div>
+      </div>
+    </div>
+  </div>
+</main>
 
 
 
