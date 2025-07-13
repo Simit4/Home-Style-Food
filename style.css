@@ -185,9 +185,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer-column ul li a:hover {
-  color: #2e7d32;
-  text-decoration: underline;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
+
 
 .footer-column .social-icons a {
   font-size: 1.5rem;
