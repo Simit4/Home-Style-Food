@@ -128,12 +128,74 @@ h1, h2, h3, h4, h5 {
 /* -------------------------------------------------
    Recipe Detail Page
 -------------------------------------------------- */
-.recipe-layout{display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem;}
-.recipe-left,.recipe-video{flex:1; min-width:300px;}
-.recipe-video iframe{width:100%; border:none; border-radius:8px; box-shadow:var(--shadow-sm);}
-.tags-container{display:flex; flex-wrap:wrap; gap:.5rem;}
-.tag-badge{background:var(--primary); color:#fff; padding:3px 10px; border-radius:20px; font-size:.85rem;}
-.print-btn{margin-top:1.5rem}
+.recipe-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.recipe-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.recipe-left, .recipe-video {
+  flex: 1;
+  min-width: 300px;
+}
+
+.recipe-left h3, .recipe-video h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: #27ae60;
+}
+
+.recipe-video iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.recipe-meta p {
+  margin: 0.5rem 0;
+}
+
+.description {
+  font-style: italic;
+  color: #666;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tags-container span, #tags {
+  background: #27ae60;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 /* -------------------------------------------------
    Equipment Grid
