@@ -59,23 +59,23 @@ h1, h2, h3, h4, h5 {
 }
 
 .logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #27ae60; /* Your brand green */
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.logo span {
-  color: #1e8449; /* darker green for contrast */
+  font-size: 2.2rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.logo strong {
-  color: #e67e22; /* warm, food-friendly orange */
-  font-weight: 900;
+.logo-modern {
+  font-family: 'Poppins', sans-serif;
+  color: #1e8449; /* Modern green tone */
 }
+
+.logo-traditional {
+  font-family: 'DM Serif Display', serif;
+  color: #d35400; /* Rich warm tone, like spice or taste */
+}
+
 
 
 .logo:hover {
