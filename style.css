@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5 {
 }
 .navbar a {
   position: relative;
-  font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  font-weight: 600; letter-spacing: 0.5px;
 }
 .navbar a::after {
   content:""; position:absolute; left:0; bottom:-4px;
