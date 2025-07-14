@@ -59,24 +59,29 @@ h1, h2, h3, h4, h5 {
 }
 
 .logo {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.4rem;
-  line-height: 1;
+  user-select: none;
+  letter-spacing: -0.5px;
+  transition: transform 0.3s ease;
+   text-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .logo-modern {
-  font-family: 'DM Serif Display', serif;
-  color: #1e8449; /* Rich green – modern */
-  letter-spacing: -0.5px;
+  color: #1e8449; /* Rich deep green */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
 }
 
 .logo-traditional {
+  color: #d35400; /* Warm Nepali-orange */
   font-family: 'DM Serif Display', serif;
-  color: #d35400; /* Warm orange – traditional */
   font-weight: normal;
+  letter-spacing: 0.2px;
 }
 
 
