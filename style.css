@@ -68,20 +68,21 @@ h1, h2, h3, h4, h5 {
   user-select: none;
   letter-spacing: -0.5px;
   transition: transform 0.3s ease;
-   text-shadow: 0 1px 3px rgba(0,0,0,0.06);
+text-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .logo-modern {
-  color: #1e8449; /* Rich deep green */
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #14532d; /* Rich green */
+  letter-spacing: -0.5px;
 }
 
 .logo-traditional {
-  color: #d35400; /* Warm Nepali-orange */
-  font-family: 'DM Serif Display', serif;
-  font-weight: normal;
-  letter-spacing: 0.2px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  color: #d35400; /* Warm orange */
+  letter-spacing: 0.5px;
 }
 
 
@@ -91,6 +92,16 @@ h1, h2, h3, h4, h5 {
   transform: scale(1.03);
   transition: 0.3s ease;
 }
+
+.logo {
+  animation: fadeInLogo 0.8s ease-in-out;
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 
 
