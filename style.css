@@ -378,7 +378,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .social-icons a:hover {
-  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
 
 .social-icons .fa-youtube { color: #FF0000; }
