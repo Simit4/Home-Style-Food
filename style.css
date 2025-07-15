@@ -315,9 +315,9 @@ h1, h2, h3, h4, h5 {
 ========================= */
 .main-footer {
   background: #ffffff;
-  color: #333;
+  color: #2c3e50;
   padding: 3rem 1.5rem 2rem;
-  border-top: 3px solid #27ae60;
+  border-top: 4px solid #27ae60;
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
   font-family: 'Open Sans', sans-serif;
 }
@@ -331,44 +331,44 @@ h1, h2, h3, h4, h5 {
   gap: 2rem;
 }
 
-.footer-brand h2 {
-  font-size: 2rem;
-  color: #1e8449;
+.footer-column h2 {
+  font-size: 2.2rem;
   font-weight: 800;
   font-family: 'Unbounded', sans-serif;
+  color: #27ae60;
 }
 
-.footer-brand h2 span {
+.footer-column h2 span {
   color: #e67e22;
 }
 
-.footer-brand p {
+.footer-column p {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #666;
-  max-width: 320px;
+  color: #555;
+  max-width: 360px;
+  line-height: 1.6;
 }
 
-.footer-links h4,
-.footer-social h4 {
+.footer-column h4 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #1e8449;
   font-weight: 700;
 }
 
-.footer-links ul {
+.footer-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-links ul li {
+.footer-column ul li {
   margin-bottom: 12px;
 }
 
-.footer-links a {
-  color: #333;
+.footer-column ul li a {
+  color: #2c3e50;
   text-decoration: none;
   font-weight: 600;
   display: flex;
@@ -377,31 +377,33 @@ h1, h2, h3, h4, h5 {
   transition: all 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: var(--primary);
-  transform: translateX(4px);
+.footer-column ul li a:hover {
+  color: #e67e22;
+  transform: translateX(5px);
 }
 
 .social-icons a {
-  font-size: 1.5rem;
-  margin-right: 15px;
+  font-size: 1.6rem;
+  margin-right: 14px;
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
 .social-icons a:hover {
-  transform: translateX(4px);
+  transform: scale(1.2);
 }
 
-.social-icons .fa-youtube { color: #FF0000; }
-.social-icons .fa-instagram { color: #E1306C; }
-.social-icons .fa-facebook-f { color: #1877F2; }
-.social-icons .fa-tiktok { color: #000; }
+/* Brand-specific social colors */
+.fa-youtube   { color: #FF0000; }
+.fa-instagram { color: #E1306C; }
+.fa-facebook-f { color: #1877F2; }
+.fa-tiktok    { color: #000000; }
 
 .footer-bottom {
   text-align: center;
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: #777;
+  color: #888;
   border-top: 1px solid #ddd;
   padding-top: 1.5rem;
 }
@@ -410,12 +412,9 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
+    align-items: center;
+    gap: 3rem;
     text-align: center;
-    gap: 2.5rem;
-  }
-
-  .footer-links ul {
-    display: inline-block;
   }
 
   .social-icons a {
