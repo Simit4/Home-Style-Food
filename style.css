@@ -367,7 +367,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer-column ul li a:hover {
-  color: #e67e22;
+  color: var(--primary);
   transform: translateX(3px);
 }
 
