@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5 {
 
 .footer-column.links a:hover {
   color: #e67e22;
-  transform: scale(1.0);
+  transform: scale(1.05);
 }
 
 /* Social Icons */
