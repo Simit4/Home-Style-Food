@@ -375,6 +375,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1.5rem;
   margin-right: 12px;
   transition: transform 0.3s ease;
+color: #FF0000;
 }
 
 .social-icons a:hover {
@@ -382,7 +383,6 @@ transform: scale(1.2);
 
 }
 
-.social-icons .fa-youtube { color: #FF0000; }
 
 
 .footer-bottom {
