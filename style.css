@@ -312,95 +312,102 @@ h1, h2, h3, h4, h5 {
 /* =======================
    Footer - Modern & Professional
 ========================= */
+./* Footer */
 .main-footer {
-  background-color: #1e1e1e; /* Clean dark tone */
-  color: #f1f1f1;
+  background: #ffffff;
+  border-top: 2px solid #eee;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
+  color: #333;
   padding: 3rem 1.5rem 2rem;
   font-family: 'Open Sans', sans-serif;
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.footer-column {
-  flex: 1 1 250px;
-  min-width: 200px;
+/* Footer Brand */
+.footer-column.brand h3 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2rem;
+  color: #166534; /* Green */
+  margin-bottom: 0.5rem;
 }
 
-.footer-column h4 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-
-.footer-column h4:hover {
-  color: #27ae60; /* Your brand green */
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: scale(1.03);
-  transition: 0.3s ease;
-}
-
-
-.footer-column p {
+.footer-column.brand p {
   font-size: 0.95rem;
+  color: #555;
+  max-width: 280px;
   line-height: 1.6;
-  color: #ccc;
 }
 
-.footer-column ul {
+/* Footer Links */
+.footer-column.links h3 {
+  font-size: 1.2rem;
+  color: #1e8449;
+  margin-bottom: 1rem;
+}
+
+.footer-column.links ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-column ul li {
-  margin-bottom: 8px;
+.footer-column.links li {
+  margin-bottom: 10px;
 }
 
-.footer-column ul li a {
-  color: #bbb;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.footer-column ul li a:hover {
-  color: #27ae60; /* Your brand green */
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: scale(1.03);
-  transition: 0.3s ease;
-}
-
-/* Social Icons */
-.social-icons a {
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 1.4rem;
-  color: #ccc;
+.footer-column.links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   transition: color 0.3s ease;
 }
 
-/* Use original brand colors on hover */
-.social-icons a:hover .fa-youtube {
-  color: #FF0000;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: scale(1.03);
-  transition: 0.3s ease;   
+.footer-column.links a:hover {
+  color: #e67e22;
 }
 
+/* Social Icons */
+.footer-column.social h3 {
+  font-size: 1.2rem;
+  color: #1e8449;
+  margin-bottom: 1rem;
+}
 
-/* Bottom */
+.social-icons a {
+  font-size: 1.6rem;
+  margin-right: 12px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Individual Platform Colors */
+.social-icons .fa-youtube { color: #FF0000; }
+
+
+/* Footer Bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+  padding-top: 1.2rem;
 }
 
 /* Responsive Footer */
@@ -408,11 +415,13 @@ h1, h2, h3, h4, h5 {
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 2rem;
   }
 
   .footer-column {
     width: 100%;
   }
+}
 
 
 
