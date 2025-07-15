@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5 {
   content:""; position:absolute; left:0; bottom:-4px;
   width:0%; height:2px; background:var(--primary); transition:.3s;
 }
-.navbar a:hover::after { width:100%; }
+.navbar a:hover::after { width:100%; transform: scale(1.2); }
 
 /* Responsive nav */
 @media (max-width: 768px){
